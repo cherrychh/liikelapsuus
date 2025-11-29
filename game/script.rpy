@@ -346,8 +346,28 @@ label plants:
     show wave angry
     s "Törkeää! >:("
     
+    # TEHTÄVÄ TÄHÄN
 
-
+    menu:
+        "Kumpi tiimeistä voitti?"
+        "Valerie-tiimi":
+            $ valeriePoints +=1
+            "Anthonyn takaata ilmestyy lihansyöjäkasvi, joka valmistautuu hyökkäykseen."
+            "Valerie kuitenkin ehtii iskemään kasvia Wave:llä ja murskaa sen."
+            show wave love
+            s "{i}Apua, Val rakastaa minua!{/i}"
+            s "IIK! Minäkin rakastan sinua Val!"
+            show valerie neutral at left # HÄMMENTYNYT?
+            v "Mitäh? Okei?"
+            "He lopulta löytävät oven ja avaavat sen..."
+        "Anthony-tiimi":
+            "Valerie meinaa kaatua, mutta Anthony ehtii ottamaan hänestä kiinni ja estämään hänet kaatumasta."
+            $ anthonyPoints +=1
+            a "Mitäs mieltä olet nyt tästä huoneesta?"
+            v "Älä edes aloita, Ant."
+    v "Minusta kyllä tulee tästä lähtien kasvissyöjä. Todistan niille ilkeille kasveille, että minä syön niitä, eivätkä ne minua."
+    a "Ahaa. Minusta ei kyllä tule kasvinsyöjää. En edes halua koskea niihin enään tämän jälkeen..."
+    "He lopulta löytävät oven ja avaavat sen..."
 
     scene black
     pause 3.0
@@ -464,3 +484,21 @@ label closingroom:
     scene black
 
     pause 3.0
+    jump dieRoom
+
+label dieRoom:
+    
+
+
+label lastroom:
+    scene hotelRoom
+    
+    v "Muistatko, monesko kerta tämä nyt on?"
+    a "En ole täysin varma... kahdeksas kerta?"
+    v "No, oletko valmiina?"
+    a "Onko meillä muita vaihtoehtoja?"
+    v "..."
+    a "Mennään sitten."
+
+    "Valerie ja Anthon avaavat mysteerihuoneen oven ja astuvat varovasti sisään."
+    scene #VIIMEINEN HUONE
