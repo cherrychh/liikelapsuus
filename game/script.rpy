@@ -8,7 +8,7 @@ image hotelRoom = "Hotellihuone.png"
 image Lavadark:
   "Laavahuone.png"
   matrixcolor OpacityMatrix(0.5)
-                    
+#image whiteroom = 
 
 label start:
     $ valeriePoints = 0
@@ -144,7 +144,7 @@ label lavaroom2nd:
     hide text
     hide Lavadark
     show lavaroom
-    
+
     menu:
         "Kumpi tiimeistä voitti?"
 
@@ -157,7 +157,7 @@ label lavaroom2nd:
             $ anthonyPoints +=1
             "Valerie kompastuu lamppuun, mutta Anthony ehtii ottamaan hänestä kiinni ennen kuin Valerie tippuu."
             v "HUI! Kiitti Ant."
-            e "Ei mitään."
+            a "Ei mitään."
 
     s "Onneksi olkoon molemmille! Teidän suoritus oli erittäin eeppinen!"
     v "Pääsemmekö nyt pois täältä?"
@@ -193,7 +193,7 @@ label darkroom:
     a "No e-"
     pause 3.0
 
-    show hotelroom
+    show hotelRoom
     a "..."
     v "Saiko se sinut kiinni?"
     a "Ehkä?"
@@ -202,7 +202,7 @@ label darkroom:
     # Pimeää
     "Valerie ja Anthony palaavat takaisin pimeään huoneeseen suorittamaan tehtävää."
 
-    # [TEHTÄVÄ]
+    # [TEHTÄVÄ 2
 
     menu:
         "Kumpi tiimeistä voitti?"
@@ -221,6 +221,28 @@ label darkroom:
             a "Äläpä muuta sano. Etsitään se ovi nopeasti."
 
     pause 3.0
+    jump closingroom
 
+label closingroom:
     
-
+    show hotelRoom
+    v "Täällä taas..."
+    a "Ehkä nyt me pääsemme pois täältä."
+    "Anthony kokeilee avata ovea, muttei se edes liikahda. Hän huohkaisee syvään."
+    v "Ja matka jatkuu."
+    "Valerie ja Anthony avaavat mysteerioven varovasti ja astuvat sisään."
+    v "Toivottavasti tällä kertaa ei ole mitään hengenvaarallista..."
+    a "Samaa mieltä."
+    
+    show whiteroom
+    v "Hetkinen, tyhjä huone? Miksiköhän täällä ei ole mitään. Kuuluisiko meidän vain kävellä tästä läpi?"¨
+    a "Ehkä..."
+    "..."
+    a "Hallusinoinko minä, vai onko tämä huone jatkuvasti pienenemässä?"
+    s "Terve taas rakkaat pelaajat!"
+    a "Ei taas."
+    v "Niin! Päästä meidät pois täältä! Me ollaan leikitty teidän leikkejä jo tarpeeksi pitkään!"
+    s "Haha, te olette niin hassuja."
+    s "Joka tapauksessa, tervetuloa minun LEMPI huoneeseen!"
+    s "Täällä seinät eivät ole niin pysyviä kuin mitä uskotte, hihi! Seinät lähestyvät jatkuvasti kohti huoneen keskustaa, joten litistytte ellette ryhdy heti tosi toimiin."
+    s "Onnea teille, sillä tulette tarvitsemaan sitä ;)"
