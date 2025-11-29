@@ -9,6 +9,9 @@ image Lavadark:
   "Laavahuone.png"
   matrixcolor OpacityMatrix(0.5)
 image whiteroom = "whiteroom.png"
+image whitedark:
+  "whiteroom.png"
+  matrixcolor OpacityMatrix(0.5)
 image logo = "logo.png"
 
 label splashscreen:
@@ -286,7 +289,7 @@ label closingroom:
     a "Ei taas."
     v "Niin! Päästä meidät pois täältä! Me ollaan leikitty teidän leikkejä jo tarpeeksi pitkään!"
     s "Haha, te olette niin hassuja."
-    s "Joka tapauksessa, tervetuloa minun LEMPI huoneeseen!"
+    s "Joka tapauksessa, tervetuloa minun LEMPI huoneeseeni!"
     s "Täällä seinät eivät ole niin pysyviä kuin mitä uskotte, hihi! Seinät lähestyvät jatkuvasti kohti huoneen keskustaa, joten litistytte ellette ryhdy heti tosi toimiin."
     s "Onnea teille, sillä tulette tarvitsemaan sitä ;)"
     v "M-mitäh!?"
@@ -300,7 +303,9 @@ label closingroom:
     pause 3.0
 
     scene hotelRoom
+    show valerie neutral at left
     v "KÄÄK!"
+    show anthony neutral at right
     a "Tuo oli stressaavaa."
     v "Äläpä muuta sano... Mutta tällä kertaa paremmin, eikö?"
     a "Jep."
@@ -313,7 +318,11 @@ label closingroom:
     v "Juostaan nyt!"
     s "HEI! Kauhean epäkohteliasta D:<"
 
-    # TEHTÄVÄ WOOOOOOO LEKS GO GTIRLY POPS AYYY SKIPIDI SAMMAKKO WOOO
+    show whitedark
+    show text "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa. \nTavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa.\nTämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla.\nSaatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa.\nSe, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin." at truecenter
+    ""
+    hide text
+    scene whiteroom
 
     menu:
         "Kumpi tiimeistä voitti?":
