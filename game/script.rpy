@@ -23,3 +23,16 @@ label start:
     # This ends the game.
 
     return
+
+
+label lavaroom2nd:
+
+    v "Hmm. Näin tosi outoa unta"
+    a "Niin minäkin"
+    v "Siinä me heräsimme tässä samassa huoneessa ja kävelimme ovesta ja oven takana oli huone jonka lattia oli täysin laaavan peitossa"
+    a "Mitä!? Näin itsekkin ihan samanlaista unta"
+    a "Katso! Tuossahan on se sama ovi mistä menimme unessa."
+    a "Niin onkin…Outoa…"
+    v "Miksi olisimme nähneet samaa unta?"
+    a "En tiedä. Pitäsikö meidän avata tuo ovi"
+
