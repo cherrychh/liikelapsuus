@@ -1,13 +1,9 @@
-﻿# The script of the game goes in this file.
-
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
-define v = Character("Valerie", color="74b849")
+﻿define v = Character("Valerie", color="74b849")
 define a = Character("Anthony",color="322240")
 define s = Character("Wave", color="2e3033")
 
-# The game starts here.
+image laavahuone = "Laavahuone.png"
+image hotelRoom = "Hotellihuone.png"
 
 label start:
     $ valeriePoints = 0
@@ -27,13 +23,13 @@ label start:
 
 label lavaroom1st:
 
-    # hotelli huone tausta 
+    show hotelRoom
     
     "Valerie ja Anthony ovat hyviä ystäviä, jotka ovat vuosien eron jälkeen vihdoin päässeet jälleen viettämään aikaa yhdessä. Ystyävykset ovat löytäneet mukavalta näyttävän hotellin, jossa he päättivät yöpyä."
     "Kaikki oli mennyt aivan mutkattomasti, mutta aamulla jotain outoa kuitenkin tapahtuu"
 
     # show valerie iloinen
-
+    
     v "Hei Ant! Mennäänkö nyt aamupalalle? Näin eilen tuolla tien toisella puolella kivan kahvilan. Siellä näytti olevan kroisantteja, pullia ja kasin muotoisia rinkeleitä."
 
     # show anthony neutraali
@@ -99,10 +95,10 @@ label lavaroom1st:
 
 
 label lavaroom2nd:
-    $ global valeriePoints
-    #näytä hotellihuone
 
+    show hotelRoom
     pause 3.0
+
     v "Hmm. Näin tosi outoa unta."
     #näytä val
     a "Niin minäkin..."
@@ -113,13 +109,17 @@ label lavaroom2nd:
     a "Niinpä onkin...Outoa"
     v "Miten tämä kaikki on mahdollista?"
     "Valerie kokeilee uudestaan hotellihuoneen ovea ja toteaa sen olevan yhä lukossa."
+
+
     v "Meillä ei varmaan ole muita vaihtoehtoja."
     "Valerie avaa nurkassa olevan mysteeri oven uudestaan."
     # näytä laavahuone ja piilota ahomot
+    show laavahuone
     v "Täällä tosiaan on se sama laavahuone kuin aikaisemmin."
     s "Hei rakkaat ystävät! Tervetuloa laavahuoneeseen!"
     s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan. Onnea!"
     
+
     "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa."
     "Tavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa."
     "Tämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla."
