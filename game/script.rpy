@@ -14,6 +14,14 @@ $ anthonyPoints = 0
 
 label start:
 
+    s "Hei! Tervettuloa pelaamaan meidän HUIKEAA peliä "INSERT TOSI SIISTI PELI NIMI"!"
+    s "Pääsette seuraamaan kahden ihastuttavan henkilön kokemuksia ja tekemään hulvattoman hauskoja tehtäviä! :D"
+    s "Valitkaa teistä yksi pelin tuomariksi ja jakakaa loput kahteen ryhmään (Ryhmä 1 ja Ryhmä 2)."
+    s "{cps=10}...{/cps}"
+
+
+label lavaroom1st:
+
     # hotelli huone tausta 
     
     "Valerie ja Anthony ovat hyviä ystäviä, jotka ovat vuosien eron jälkeen vihdoin päässeet jälleen viettämään aikaa yhdessä. Ystyävykset ovat löytäneet mukavalta näyttävän hotellin, jossa he päättivät yöpyä."
@@ -51,6 +59,14 @@ label start:
     v "Hei Ant, oliko tuo oli aina tuossa?"
 
     "Valerie osoittaa nurkassa olevaa ovea."
+    "Anthony on hetken hiljaa."
+
+    a "Ei tainut olla."
+    v "Outoa. Ehkä me pääsemme siitä ulos!"
+
+    "Valerie kävelee oven luoksen Anthony perässään"
+
+
 
     
 
@@ -69,9 +85,9 @@ label lavaroom2nd:
     v "Katso! Tuossahan on se sama ovi mistä menimme unessa."
     a "Niinpä onkin...Outoa"
     v "Mitä?! Miten tämä kaikki on mahdollista?"
-    "Valerie kokeilee uudestaa ovea ja toteaa sen olevan yhä lukossa."
+    "Valerie kokeilee uudestaan hotellihuoneen ovea ja toteaa sen olevan yhä lukossa."
     v "Miksipäs ei!"
-    "Valerie avaa nurkassa olevan oven."
+    "Valerie avaa nurkassa olevan mysteeri oven."
     # näytä laavahuone ja piilota ahomot
     v "Täällä on se sama laavahuone kuin aikaisemmin."
     s "Tervetuloa laavahuoneeseen!"
