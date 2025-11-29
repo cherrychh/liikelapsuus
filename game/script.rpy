@@ -5,11 +5,29 @@ define text = Character("Tehtävä:", kind=nvl)
 
 image lavaroom = "Laavahuone.png"
 image hotelRoom = "Hotellihuone.png"
-image dark = "dark.png"
 image Lavadark:
   "Laavahuone.png"
   matrixcolor OpacityMatrix(0.5)
 image whiteroom = "whiteroom.png"
+image logo = "logo.png"
+
+label splashscreen:
+    scene black
+    with Pause(1)
+
+    show logo at truecenter with dissolve
+    with Pause(2)
+
+    hide logo with dissolve
+    with Pause(1)
+
+    show text "Tehty liikettä peleistä jameissa 2025" with dissolve
+    with Pause(2)
+
+    hide text with dissolve
+    with Pause(1)
+
+    return
 
 label start:
     $ valeriePoints = 0
@@ -114,7 +132,7 @@ label lavaroom1st:
     v "{cps=2}ÄÄH!!!{/cps}"
 
     # Musta screen/ välähdys
-    scene dark
+    scene black
     pause 1.0
 
     jump lavaroom2nd
@@ -146,7 +164,7 @@ label lavaroom2nd:
     s "Hei rakkaat ystävät! Tervetuloa laavahuoneeseen! Minä ole Wave, erittäin älykäs ja hurmaava robootti, joka tarjoaa teille tämän mainion pelikokemuksen!"
     
     s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan. Onnea!"
-    scene dark
+    scene black
     show Lavadark
     show text "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa. \nTavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa.\nTämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla.\nSaatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa.\nSe, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin." at truecenter
     ""
@@ -173,7 +191,7 @@ label lavaroom2nd:
     s "Onneksi olkoon molemmille! Teidän suoritus oli erittäin eeppinen!"
     v "Pääsemmekö nyt pois täältä?"
     s "{cps=2}...{/cps}"
-    scene dark
+    scene black
     pause 1.0
 
     #Musta screen
@@ -193,7 +211,7 @@ label darkroom:
     v "Vielä lukossa?"
     a "Jep."
     v "Noh. Mennään sitten takaisin sinne laava huoneeseen. Ehkä se robootti ääni pystyy auttamaan meitä?"
-    scene dark
+    scene black
     "Valerie ja Anthon kävelee mysteeri huoneeseen, mutta tällä kertaa siellä ei olekaan laavaa ja huonekaluja."
     pause 3.0
     v "Ant?"
@@ -216,7 +234,7 @@ label darkroom:
     a "Ehkä?"
     v "Noh, olisiko toinen yritys?"
     a "Todellakin."
-    scene dark
+    scene black
     # Pimeää
     "Valerie ja Anthony palaavat takaisin pimeään huoneeseen suorittamaan tehtävää."
 
@@ -260,7 +278,7 @@ label closingroom:
     scene whiteroom
     show valerie neutral at left
     v "Hetkinen, tyhjä huone? Miksiköhän täällä ei ole mitään. Kuuluisiko meidän vain kävellä tästä läpi?"
-        show anthony neutral at right
+    show anthony neutral at right
 
     a "Ehkä..."
     "..."
