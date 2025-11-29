@@ -1,6 +1,6 @@
 ﻿define v = Character("Valerie", color="74b849")
 define a = Character("Anthony",color="322240")
-define s = Character("Wave (systeemi)", color="2e3033")
+define s = Character("Wave (systeemi)", color="3e4043")
 define text = Character("Tehtävä:", kind=nvl)
 
 image lavaroom = "Laavahuone.png"
@@ -50,16 +50,19 @@ label lavaroom1st:
     v "Hei Ant! Mennäänkö nyt aamupalalle? Näin eilen tuolla tien toisella puolella kivan kahvilan. Siellä näytti olevan kroisantteja, pullia ja kasin muotoisia rinkeleitä."
 
     # show anthony neutraali
+    show anthony neutral at right
     a "Mennään vaan."
 
     "Anthony kävelee oven luokse ja vääntää kahvaa, mutta ovi näyttää olevan lukossa."
 
     # show anthony hämmentynyt
+    show anthony neutral at right
     a "Ompa omituista..."
     v "Mitä?"
     a "Tämä ovi vaikuttaa olevan lukossa ulkoota päin."
     
     # show Valerie hämmentynyt
+    show valerie neutral at left
     v "Hääh? Miten tuo on edes mahdollista?"
 
     "Valerie kävelee Anthonyn luokse ja kokeilee kahvaa useamman kerran."
@@ -68,11 +71,12 @@ label lavaroom1st:
     v "Miten tämä voi olla lukossa?"
     
     # Show anthony neutraal
+    show anthony neutral at right
     a "..."
     v "Miten meidän pitäisi päästä täältä pois?"
 
     # Show valerie keskittynyt
-
+    show valerie neutral at left
     "Valerie kääntyy ympäri ja silmäilee heidän huonettaan."
     v "Hei Ant, oliko tuo oli aina tuossa?"
 
@@ -84,7 +88,7 @@ label lavaroom1st:
 
     "Valerie harppaa nopein askelin ovelle Anthony perässään. Hän tarttuu oven kahvaan ja vääntää sen auki."
     "Samalla huone täyttyy sietämättömällä kuumuudella."
-    # bg lava room
+    show lavaroom
     "Kaverusten katseet tarttuvat heti tuntemattomaan huoneeseen."
 
     v "WOAH!"
@@ -107,6 +111,8 @@ label lavaroom1st:
     v "{cps=2}ÄÄH!!!{/cps}"
 
     # Musta screen/ välähdys
+    hide laavaroom
+    pause 1.0
 
     jump lavaroom2nd
 
@@ -115,11 +121,10 @@ label lavaroom2nd:
 
     show hotelRoom
     pause 3.0
-
+    show valerie neutral at left
     v "Hmm. Näin tosi outoa unta."
-    #näytä val
+    show anthony neutral at right
     a "Niin minäkin..."
-    #näytä ant
     v "Siinä me kävelimme tyhjästä ilmestyneestä ovesta huoneeseen, jonka lattia oli täysin laavan peitossa."
     a "Oikeastiko? Näin itsekkin ihan samanlaista unta."
     v "Katso! Tuossa on se sama ovi mistä menimme unessa."
@@ -133,35 +138,45 @@ label lavaroom2nd:
     # näytä laavahuone ja piilota ahomot
     hide hotelRoom
     show lavaroom
+    show valerie neutral at left
     v "Täällä tosiaan on se sama laavahuone kuin aikaisemmin."
-    s "Hei rakkaat ystävät! Tervetuloa laavahuoneeseen!" Minä ole Wave, erittäin älykäs ja hurmaava robootti, joka tarjoaa teille tämän mainion pelikokemuksen!
+    s "Hei rakkaat ystävät! Tervetuloa laavahuoneeseen! Minä ole Wave, erittäin älykäs ja hurmaava robootti, joka tarjoaa teille tämän mainion pelikokemuksen!"
     
     s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan. Onnea!"
     show Lavadark
     hide lavaroom
+    hide valerie
+    hide anthony
     show text "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa. \nTavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa.\nTämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla.\nSaatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa.\nSe, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin." at truecenter
     ""
     hide text
     hide Lavadark
     show lavaroom
-
     menu:
         "Kumpi tiimeistä voitti?"
 
         "Valerie-tiimi":
             $ valeriePoints +=1
             "Valerie tutkii varovasti huonetta ja löytää molemmille nopean ja turvallisen reitin heille."
+            show valerie neutral at left
             v "Fiksu reitti, eikö?"
+            show anthony neutral at right
             a "Yllättävän."
         "Anthony-tiimi":
             $ anthonyPoints +=1
             "Valerie kompastuu lamppuun, mutta Anthony ehtii ottamaan hänestä kiinni ennen kuin Valerie tippuu."
+            show valerie neutral at left
             v "HUI! Kiitti Ant."
+            show anthony neutral at right
             a "Ei mitään."
 
     s "Onneksi olkoon molemmille! Teidän suoritus oli erittäin eeppinen!"
     v "Pääsemmekö nyt pois täältä?"
     s "{cps=2}...{/cps}"
+    hide lavaroom
+    hide valerie
+    hide anthony
+    pause 1.0
 
     #Musta screen
 
@@ -169,16 +184,20 @@ label lavaroom2nd:
 
 label darkroom:
 
-    #Show hotelli
+    show hotelRoom
+    show valerie neutral at left
     v "ÄÄh!!"
     v "..."
     v "Ollaan taas täällä?"
+    show anthony neutral at right
     a "Näköjään. Onkohan se ovi nyt auki?"
     "Anthony kokeilee kahvaa ja huokaisee."
     v "Vielä lukossa?"
     a "Jep."
     v "Noh. Mennään sitten takaisin sinne laava huoneeseen. Ehkä se robootti ääni pystyy auttamaan meitä?"
-    #Mustaa
+    hide hotelRoom
+    hide valerie
+    hide anthony
     "Valerie ja Anthon kävelee mysteeri huoneeseen, mutta tällä kertaa siellä ei olekaan laavaa ja huonekaluja."
     pause 3.0
     v "Ant?"
@@ -195,14 +214,22 @@ label darkroom:
 
     show hotelRoom
     a "..."
+    show valerie neutral at left
     v "Saiko se sinut kiinni?"
+    show anthony neutral at right
     a "Ehkä?"
     v "Noh, olisiko toinen yritys?"
     a "Todellakin."
+    hide valerie
+    hide anthony
+    hide hotelRoom
     # Pimeää
     "Valerie ja Anthony palaavat takaisin pimeään huoneeseen suorittamaan tehtävää."
 
-    # [TEHTÄVÄ 2
+    show text "Tuomarilla on silmät sidottuna. Hän yrittää saada teidät kiinni. Jos jäät, häviät\nVoittaja on se, joka pystyy pakenemaan GM:n kiinniottoa." at truecenter
+    ""
+    hide text
+
 
     menu:
         "Kumpi tiimeistä voitti?"
