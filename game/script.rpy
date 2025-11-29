@@ -4,8 +4,8 @@
 # name of the character.
 
 define v = Character("Valerie", color="74b849")
-define a Character("Anthony",color="322240")
-define a Character("System",color="2e3033")
+define c = nCharacter("Anthony",color="322240")
+define a = Character("System",color="2e3033")
 
 
 # The game starts here.
