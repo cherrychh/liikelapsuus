@@ -1,13 +1,9 @@
-﻿# The script of the game goes in this file.
-
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
-define v = Character("Valerie", color="74b849")
+﻿define v = Character("Valerie", color="74b849")
 define a = Character("Anthony",color="322240")
 define s = Character("System",color="2e3033")
 
-# The game starts here.
+image laavahuone = "Laavahuone.png"
+image hotelRoom = "Hotellihuone.png"
 
 label start:
     $ valeriePoints = 0
@@ -21,13 +17,13 @@ label start:
 
 label lavaroom1st:
 
-    # hotelli huone tausta 
+    show hotelRoom
     
     "Valerie ja Anthony ovat hyviä ystäviä, jotka ovat vuosien eron jälkeen vihdoin päässeet jälleen viettämään aikaa yhdessä. Ystyävykset ovat löytäneet mukavalta näyttävän hotellin, jossa he päättivät yöpyä."
     "Kaikki oli mennyt aivan mutkattomasti, mutta aamulla jotain outoa kuitenkin tapahtuu"
 
     # show valerie iloinen
-
+    
     v "Hei Ant! Mennäänkö nyt aamupalalle? Näin eilen tuolla tien toisella puolella kivan kahvilan. Siellä näytti olevan kroisantteja, pullia ja kasin muotoisia rinkeleitä."
 
     # show anthony neutraali
@@ -73,7 +69,7 @@ label lavaroom1st:
 
 label lavaroom2nd:
     $ global valeriePoints
-    #näytä hotellihuone
+    show hotelRoom
     v "Hmm. Näin tosi outoa unta."
     #näytä val
     a "Niin minäkin"
@@ -87,7 +83,7 @@ label lavaroom2nd:
     v "Miksipäs ei!"
     "Valerie avaa nurkassa olevan mysteeri oven."
     # näytä laavahuone ja piilota hahomot
-    scene bg "Laavahuone.png"
+    show laavahuone
     v "Täällä on se sama laavahuone kuin aikaisemmin."
     s "Tervetuloa laavahuoneeseen!"
     s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan."
