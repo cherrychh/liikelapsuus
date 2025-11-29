@@ -5,10 +5,11 @@ define text = Character("Tehtävä:", kind=nvl)
 
 image lavaroom = "Laavahuone.png"
 image hotelRoom = "Hotellihuone.png"
+image dark = "dark.png"
 image Lavadark:
   "Laavahuone.png"
   matrixcolor OpacityMatrix(0.5)
-#image whiteroom = 
+image whiteroom = "whiteroom.png"
 
 label start:
     $ valeriePoints = 0
@@ -39,7 +40,7 @@ label start:
 
 label lavaroom1st:
 
-    show hotelRoom
+    scene hotelRoom
 
     pause 2.0
     
@@ -88,10 +89,12 @@ label lavaroom1st:
 
     "Valerie harppaa nopein askelin ovelle Anthony perässään. Hän tarttuu oven kahvaan ja vääntää sen auki."
     "Samalla huone täyttyy sietämättömällä kuumuudella."
-    show lavaroom
+    scene lavaroom
     "Kaverusten katseet tarttuvat heti tuntemattomaan huoneeseen."
 
+    show valerie neutral at left
     v "WOAH!"
+    show anthony neutral at right
     a "Mitä ihmettä!?"
     v "Onko tuo oikeaa laavaa?"
 
@@ -111,7 +114,7 @@ label lavaroom1st:
     v "{cps=2}ÄÄH!!!{/cps}"
 
     # Musta screen/ välähdys
-    hide laavaroom
+    scene dark
     pause 1.0
 
     jump lavaroom2nd
@@ -119,7 +122,7 @@ label lavaroom1st:
 
 label lavaroom2nd:
 
-    show hotelRoom
+    scene hotelRoom
     pause 3.0
     show valerie neutral at left
     v "Hmm. Näin tosi outoa unta."
@@ -136,22 +139,19 @@ label lavaroom2nd:
     v "Meillä ei varmaan ole muita vaihtoehtoja."
     "Valerie avaa nurkassa olevan mysteeri oven uudestaan."
     # näytä laavahuone ja piilota ahomot
-    hide hotelRoom
-    show lavaroom
+    #hide hotelRoom
+    scene lavaroom
     show valerie neutral at left
     v "Täällä tosiaan on se sama laavahuone kuin aikaisemmin."
     s "Hei rakkaat ystävät! Tervetuloa laavahuoneeseen! Minä ole Wave, erittäin älykäs ja hurmaava robootti, joka tarjoaa teille tämän mainion pelikokemuksen!"
     
     s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan. Onnea!"
+    scene dark
     show Lavadark
-    hide lavaroom
-    hide valerie
-    hide anthony
     show text "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa. \nTavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa.\nTämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla.\nSaatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa.\nSe, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin." at truecenter
     ""
     hide text
-    hide Lavadark
-    show lavaroom
+    scene lavaroom
     menu:
         "Kumpi tiimeistä voitti?"
 
@@ -173,9 +173,7 @@ label lavaroom2nd:
     s "Onneksi olkoon molemmille! Teidän suoritus oli erittäin eeppinen!"
     v "Pääsemmekö nyt pois täältä?"
     s "{cps=2}...{/cps}"
-    hide lavaroom
-    hide valerie
-    hide anthony
+    scene dark
     pause 1.0
 
     #Musta screen
@@ -184,7 +182,7 @@ label lavaroom2nd:
 
 label darkroom:
 
-    show hotelRoom
+    scene hotelRoom
     show valerie neutral at left
     v "ÄÄh!!"
     v "..."
@@ -195,9 +193,7 @@ label darkroom:
     v "Vielä lukossa?"
     a "Jep."
     v "Noh. Mennään sitten takaisin sinne laava huoneeseen. Ehkä se robootti ääni pystyy auttamaan meitä?"
-    hide hotelRoom
-    hide valerie
-    hide anthony
+    scene dark
     "Valerie ja Anthon kävelee mysteeri huoneeseen, mutta tällä kertaa siellä ei olekaan laavaa ja huonekaluja."
     pause 3.0
     v "Ant?"
@@ -212,7 +208,7 @@ label darkroom:
     a "No e-"
     pause 3.0
 
-    show hotelRoom
+    scene hotelRoom
     a "..."
     show valerie neutral at left
     v "Saiko se sinut kiinni?"
@@ -220,9 +216,7 @@ label darkroom:
     a "Ehkä?"
     v "Noh, olisiko toinen yritys?"
     a "Todellakin."
-    hide valerie
-    hide anthony
-    hide hotelRoom
+    scene dark
     # Pimeää
     "Valerie ja Anthony palaavat takaisin pimeään huoneeseen suorittamaan tehtävää."
 
@@ -252,7 +246,7 @@ label darkroom:
 
 label closingroom:
     
-    show hotelRoom
+    scene hotelRoom
     v "Täällä taas..."
     a "Ehkä nyt me pääsemme pois täältä."
     "Anthony kokeilee avata ovea, muttei se edes liikahda. Hän huohkaisee syvään."
@@ -261,8 +255,8 @@ label closingroom:
     v "Toivottavasti tällä kertaa ei ole mitään hengenvaarallista..."
     a "Samaa mieltä."
     
-    show whiteroom
-    v "Hetkinen, tyhjä huone? Miksiköhän täällä ei ole mitään. Kuuluisiko meidän vain kävellä tästä läpi?"¨
+    scene whiteroom
+    v "Hetkinen, tyhjä huone? Miksiköhän täällä ei ole mitään. Kuuluisiko meidän vain kävellä tästä läpi?"
     a "Ehkä..."
     "..."
     a "Hallusinoinko minä, vai onko tämä huone jatkuvasti pienenemässä?"
