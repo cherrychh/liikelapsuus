@@ -5,6 +5,10 @@ define text = Character("Tehtävä:", kind=nvl)
 
 image laavahuone = "Laavahuone.png"
 image hotelRoom = "Hotellihuone.png"
+image Lavadark:
+  "Laavahuone.png"
+  matrixcolor OpacityMatrix(0.5)
+                    
 
 label start:
     $ valeriePoints = 0
@@ -41,9 +45,7 @@ label lavaroom1st:
     
     "Valerie ja Anthony ovat hyviä ystäviä, jotka ovat vuosien eron jälkeen vihdoin päässeet jälleen viettämään aikaa yhdessä. Ystyävykset ovat löytäneet mukavalta näyttävän hotellin, jossa he päättivät yöpyä."
     "Kaikki oli mennyt aivan mutkattomasti, mutta aamulla jotain outoa kuitenkin tapahtuu"
-
     # show valerie iloinen
-    
     v "Hei Ant! Mennäänkö nyt aamupalalle? Näin eilen tuolla tien toisella puolella kivan kahvilan. Siellä näytti olevan kroisantteja, pullia ja kasin muotoisia rinkeleitä."
 
     # show anthony neutraali
@@ -128,17 +130,19 @@ label lavaroom2nd:
     v "Meillä ei varmaan ole muita vaihtoehtoja."
     "Valerie avaa nurkassa olevan mysteeri oven uudestaan."
     # näytä laavahuone ja piilota ahomot
+    hide hotelRoom
     show laavahuone
     v "Täällä tosiaan on se sama laavahuone kuin aikaisemmin."
     s "Hei rakkaat ystävät! Tervetuloa laavahuoneeseen!"
+    
     s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan. Onnea!"
-
-    text "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa. 
-    Tavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa. 
-    Tämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla. 
-    Saatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa. 
-    Se, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin."
-
+    show Lavadark
+    hide laavahuone
+    show text "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa. \nTavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa.\nTämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla.\nSaatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa.\nSe, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin." at truecenter
+    ""
+    hide text
+    hide Lavadark
+    show laavahuone
     menu:
         "Kumpi tiimeistä voitti?"
 
