@@ -35,11 +35,20 @@ label start:
 
 label lavaroom2nd:
 
-    v "Hmm. Näin tosi outoa unta"
+    #näytä hotellihuone
+    v "Hmm. Näin tosi outoa unta."
+    #näytä val
     a "Niin minäkin"
-    v "Siinä me heräsimme tässä samassa huoneessa ja kävelimme ovesta ja oven takana oli huone jonka lattia oli täysin laaavan peitossa"
-    a "Mitä!? Näin itsekkin ihan samanlaista unta"
-    a "Katso! Tuossahan on se sama ovi mistä menimme unessa."
-    a "Niin onkin…Outoa…"
-    v "Miksi olisimme nähneet samaa unta?"
-    a "En tiedä. Pitäsikö meidän avata tuo ovi"
+    #näytä ant
+    v "Siinä me kävelimme tyhjästä ilmestyneestä ovesta huoneeseen, jonka lattia oli täysin laavan peitossa."
+    a "Mitä!? Näin itsekkin ihan samanlaista unta."
+    v "Katso! Tuossahan on se sama ovi mistä menimme unessa."
+    a "Niinpä onkin...Outoa"
+    v "Mitä?! Miten tämä kaikki on mahdollista?"
+    "Valerie kokeilee uudestaa ovea ja toteaa sen olevan yhä lukossa."
+    v "Miksipäs ei!"
+    "Valerie avaa nurkassa olevan oven."
+    # näytä laavahuone ja piilota ahomot
+    v "Täällä on se sama laavahuone kuin aikaisemmin."
+    s "Tervetuloa laavahuoneeseen!"
+    s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan."
