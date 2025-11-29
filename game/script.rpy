@@ -1,6 +1,6 @@
-﻿define v = Character("Valerie", color="74b849")
-define a = Character("Anthony",color="322240")
-define s = Character("Wave (systeemi)", color="3e4043")
+﻿define v = Character("Valerie", color="cadde8")
+define a = Character("Anthony",color="e8cae6")
+define s = Character("Wave (systeemi)", color="f2f2f2")
 define text = Character("Tehtävä:", kind=nvl)
 
 image lavaroom = "Laavahuone.png"
@@ -272,3 +272,4 @@ label closingroom:
     s "Joka tapauksessa, tervetuloa minun LEMPI huoneeseen!"
     s "Täällä seinät eivät ole niin pysyviä kuin mitä uskotte, hihi! Seinät lähestyvät jatkuvasti kohti huoneen keskustaa, joten litistytte ellette ryhdy heti tosi toimiin."
     s "Onnea teille, sillä tulette tarvitsemaan sitä ;)"
+
