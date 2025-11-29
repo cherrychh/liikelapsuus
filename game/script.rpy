@@ -122,7 +122,7 @@ label lavaroom1st:
     a "Mitä ihmettä!?"
     v "Onko tuo oikeaa laavaa?"
 
-    "Yhtäkkiä huoneen seinistä kuuluu roboottimaista puhetta."
+    "Yhtäkkiä huoneen toisella puolella olevaan näyttöön ilmestyy pieni robootti."
     s "Hei rakkaat ystävät! Minä ole Wave, erittäin älykäs ja hurmaava robootti, joka tarjoaa teille tämän mainion pelikokemuksen! Tervetuloa laavahuoneeseen!"
     "Valerie ja Anthony katsovat toisiaan hämmästyneenä."
     s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan. Onnea!"
@@ -308,6 +308,50 @@ label plants:
     v "WOAH-"
     a "Miten ihmeessä päädymme aina tänne..."
     v "Ei yhtään hajua, mutta ehkä kolmas kerta toden sanoo."
+    "Anthony kokeilee hotellihuoneen ovea vielä kerran ennen kuin he lähtevät taas mysteerihuoneeseen."
+
+    scene plantroom
+
+    v "Uuu, mikä viidakko! Täällä voisin olla päivät pitkät!"
+    a "Öhh, minä en... Varo tuota lihansyöjäkasvia."
+    v "Hui! Läheltä piti! Tämä ei ehkä sittenkään ole kauhean mukava paikka..."
+    a "Joo, ollaan tarkkoina, ettei kuoltaisi."
+
+    show wave neutral
+
+    s "Hei rakkaat mussukat, eikun ihmiset, jos edes olette niitä. Tervetuloa viidakon maailmaan! Tämä oli sinua varten tehty Val! <3"
+    v "Ahaa... Kiitti. Olisit ehkä voinut jättää lihansyöjä kasvit pois."
+    s "Etkö pidä niistä? :c"
+    v "No siis... En?"
+    s "..."
+    s "Mutta siis, asiaan. Rumpujen pärinää... Jossain täällä on ovi, joka johtaa teidät pois täältä. Kenties jossain kasvuston seassa."
+    s "Teidän tehtävänä on löytää ovi, mutta varokaa myös huoneen lihansyöjäkasveja... ettei kävisi pahasti."
+    s "Tsemppiä etsimiseen, jos nyt haluatte lähteä tästä ihanasta paikasta!"
+
+    "Valerie ja Anthony yrittävät löytää ovea kasvien seasta, mutta sitä ei löydy mistään."
+    v "Löytyykö sitä sieltä?"
+    a "Eip-"
+    "Yhtäkkiä heidän takaa ilmestyy lihansyöjäkasvi, joka nappaa heidät molemmat."
+    v "ÄÄH!"
+    scene black
+    pause 1.0
+
+    scene hotelRoom
+    # show valerie stressaantunut?
+    v "..."
+    a "Hei, saatan tietää missä päin se ovi on."
+    # valerie piristynyt?
+    v "Jes! Mennään sitten!"
+
+    scene plantroom
+    show wave neutral
+    s "Hei rakkaat mussukat, eikun-"
+    a "Se taisi olla jossain täällä."
+    show wave angry
+    s "Törkeää! >:("
+    
+
+
 
     scene black
     pause 3.0
@@ -388,6 +432,7 @@ label closingroom:
     hide text
     scene whiteroom
 
+    # LISÄÄ TÄHÄN WAVE (WAVE ANGY) RAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
     menu:
         "Kumpi tiimeistä voitti?":
             "Valerie-tiimi":
@@ -408,7 +453,6 @@ label closingroom:
                 "Anthony pääsee ensimmäisenä huoneen toiselle puolelle, mutta valeriella on vielä jonkin verran matkaa jäljellä."
                 "Nähtyään Valerien, Anthony juoksee hänen luokseen ja auttaa häntä pääsemään huoneen toiselle puolelle."
                 $ anthonyPoints +=1
-                "Va"
                 show valerie neutral at left
                 v "Ei sinun olisi tarvinnut auttaa."
                 show anthony neutral at right
