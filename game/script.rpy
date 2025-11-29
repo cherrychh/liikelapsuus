@@ -18,7 +18,7 @@ label start:
 
     # Joku tausta + söpö robootti :D
 
-    s "Hei! Tervettuloa pelaamaan meidän HUIKEAA peliä INSERT TOSI SIISTI PELI NIMI!"
+    s "Hei! Tervettuloa pelaamaan meidän HUIKEAA peliä 'ROOM'!"
     s "Pääsette seuraamaan kahden ihastuttavan henkilön kokemuksia ja tekemään hulvattoman hauskoja tehtäviä! :D"
     s "Valitkaa teistä yksi pelin tuomariksi ja jakakaa loput kahteen ryhmään (Ryhmä 1 ja Ryhmä 2)."
     s "{cps=2}...{/cps}"
@@ -34,7 +34,8 @@ label start:
             s "Aloitetaan!"
             pause 1.0
         "Eip.":
-            s ""
+            s "{cps=1}...{/cps}"
+            s "ALOITETAAN!!!"
             pause 1.0
 
 
@@ -153,22 +154,22 @@ label lavaroom2nd:
     hide text
     scene lavaroom
     menu:
-        "Kumpi tiimeistä voitti?"
+        "Kumpi tiimeistä voitti?":
 
-        "Valerie-tiimi":
-            $ valeriePoints +=1
-            "Valerie tutkii varovasti huonetta ja löytää molemmille nopean ja turvallisen reitin heille."
-            show valerie neutral at left
-            v "Fiksu reitti, eikö?"
-            show anthony neutral at right
-            a "Yllättävän."
-        "Anthony-tiimi":
-            $ anthonyPoints +=1
-            "Valerie kompastuu lamppuun, mutta Anthony ehtii ottamaan hänestä kiinni ennen kuin Valerie tippuu."
-            show valerie neutral at left
-            v "HUI! Kiitti Ant."
-            show anthony neutral at right
-            a "Ei mitään."
+            "Valerie-tiimi"
+                $ valeriePoints +=1
+                "Valerie tutkii varovasti huonetta ja löytää molemmille nopean ja turvallisen reitin heille."
+                show valerie neutral at left
+                v "Fiksu reitti, eikö?"
+                show anthony neutral at right
+                a "Yllättävän."
+            "Anthony-tiimi"
+                $ anthonyPoints +=1
+                "Valerie kompastuu lamppuun, mutta Anthony ehtii ottamaan hänestä kiinni ennen kuin Valerie tippuu."
+                show valerie neutral at left
+                v "HUI! Kiitti Ant."
+                show anthony neutral at right
+                a "Ei mitään."
 
     s "Onneksi olkoon molemmille! Teidän suoritus oli erittäin eeppinen!"
     v "Pääsemmekö nyt pois täältä?"
@@ -204,7 +205,7 @@ label darkroom:
     s "Tervetuloa pilkko pimeään huoneeseen! Niin kuin huomaatte, ette näe yhtään mitään. Tästä seuraakin teidän seuraava tehtävä."
     s "Teidän pitää väistää minua samalla kun yritätte löytää oven, jolla pääsette pois huoneesta!"
     a "Mitä ihmettä."
-    s "Hauskaa, eikö?"
+    s "Hauskaa, eikö? :)"
     a "No e-"
     pause 3.0
 
@@ -220,26 +221,24 @@ label darkroom:
     # Pimeää
     "Valerie ja Anthony palaavat takaisin pimeään huoneeseen suorittamaan tehtävää."
 
-    show text "Tuomarilla on silmät sidottuna. Hän yrittää saada teidät kiinni. Jos jäät, häviät\nVoittaja on se, joka pystyy pakenemaan GM:n kiinniottoa." at truecenter
+    show text "Tuomarilla on silmät sidottuna. Hän yrittää saada teidät kiinni. Jos jäät, häviät\nVoittaja on se, joka pystyy pakenemaan tuomarin kiinniottoa." at truecenter
     ""
     hide text
 
 
     menu:
-        "Kumpi tiimeistä voitti?"
+        "Kumpi tiimeistä voitti?":
 
-        "Valerie-tiimi":
-            $ valeriePoints +=1
-            "Robootti kävelee suoraan kohti Anthonia, mutta Valerie ehtii löytämään oven, ennen kun hän jää kiinni."
-            v "Löytyi! Nyt me vihdoin pääsemme täältä pois!"
-
-        #LISÄÄ SEURAUKSET
-        "Anthony-tiimi":
-            $ anthonyPoints +=1
-            "Robootti hipaisee Valerien vierestä, mutta Anthony vetää hänet puoleensa ja pelastaa hänet."
-            a "Läheltä piti."
-            v "Jep. Erityisen pelottavaa, kun ei edes nähdä sitä roboottia..."
-            a "Äläpä muuta sano. Etsitään se ovi nopeasti."
+            "Valerie-tiimi"
+                $ valeriePoints +=1
+                "Robootti kävelee suoraan kohti Anthonia, mutta Valerie ehtii löytämään oven, ennen kun hän jää kiinni."
+                v "Löytyi! Nyt me vihdoin pääsemme täältä pois!"
+            "Anthony-tiimi"
+                $ anthonyPoints +=1
+                "Robootti hipaisee Valerien vierestä, mutta Anthony vetää hänet puoleensa ja pelastaa hänet."
+                a "Läheltä piti."
+                v "Jep. Erityisen pelottavaa, kun ei edes nähdä sitä roboottia..."
+                a "Äläpä muuta sano. Etsitään se ovi nopeasti."
 
     pause 3.0
     jump closingroom
@@ -272,4 +271,58 @@ label closingroom:
     s "Joka tapauksessa, tervetuloa minun LEMPI huoneeseen!"
     s "Täällä seinät eivät ole niin pysyviä kuin mitä uskotte, hihi! Seinät lähestyvät jatkuvasti kohti huoneen keskustaa, joten litistytte ellette ryhdy heti tosi toimiin."
     s "Onnea teille, sillä tulette tarvitsemaan sitä ;)"
+    v "M-mitäh!?"
+
+    a "Juokse, Val!"
+    "Valorie ja Anthony alkavat juoksemaan kohti huoneen toista päätä, mutta seinät kuitenkin lähestyivät liian nopeasti."
+    v "Ei tässä ole enään tilaa juosta!"
+    s "Kohta rakkaat seinämme antavat teille lämpimän halin <3"¨
+    a "MITÄ IH-"
+    "{i}PIIIIIIP{/i}"
+    pause 3.0
+
+    scene hotelRoom
+    v "KÄÄK!"
+    a "Tuo oli stressaavaa."
+    v "Äläpä muuta sano... Mutta tällä kertaa paremmin, eikö?"
+    a "Jep."
+    "He siirtyvät suoraan mysteeri huoneeseen ilman hotellihuoneen oven kokeilemista."
+    
+    scene whiteroom
+    s "Huomenta rakkaat sein- KRÖHÖM."
+    s "..."
+    s "Huomenta... pelaajat."
+    v "Juostaan nyt!"
+    s "HEI! Kauhean epäkohteliasta D:<"
+
+    # TEHTÄVÄ WOOOOOOO LEKS GO GTIRLY POPS AYYY SKIPIDI SAMMAKKO WOOO
+
+    menu:
+        "Kumpi tiimeistä voitti?":
+            "Valerie-tiimi":
+                $ valeriePoints +=1
+                "Valerie pääsee ensimmäisenä huoneen toiselle puolelle, mutta anthonylla on vielä jonkin verran matkaa jäljellä."
+                show valerie neutral at left
+                v "Ant!"
+                "Seinät alkavat painamaan Anthonyn kylkiä."
+                "Valerie ottaa kiinni sulkeutuvista seinistä ja kaikilla voimillaan onnistuu pystäyttämään seinät sulkeutumasta."
+                s "TÄH??? MI-MITEN???"
+                s "ÄLKÄÄ RIKKOKO MINUN RAKKAITA LUOMUKSIANI SENKIN SEKOPÄÄT! >:O"
+                show anthony neutral at right
+                a "Ei sinun olisi tarvinnut auttaa."
+                v "Hehe, kyllä yksinkertainen kiitos olisi myös riittänyt."
+                a "...Huoh, kiitos Val."
+                v "Ei mitään~"
+            "Anthony-tiimi":
+                "Anthony pääsee ensimmäisenä huoneen toiselle puolelle, mutta valeriella on vielä jonkin verran matkaa jäljellä."
+                "Nähtyään Valerien, Anthony juoksee hänen luokseen ja auttaa häntä pääsemään huoneen toiselle puolelle."
+                $ anthonyPoints +=1
+                "Va"
+                show valerie neutral at left
+                v "Ei sinun olisi tarvinnut auttaa."
+                show anthony neutral at right
+                a "Kyllä yksinkertainen kiitos olisi myös riittänyt."
+                v "Kiitos Ant!"
+                a "Ei mitään."
+
 
