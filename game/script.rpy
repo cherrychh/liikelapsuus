@@ -139,6 +139,15 @@ label lavaroom1st:
     jump lavaroom2nd
 
 
+
+
+
+
+
+
+
+
+
 label lavaroom2nd:
 
     scene hotelRoom
@@ -199,6 +208,19 @@ label lavaroom2nd:
 
     jump darkroom
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 label darkroom:
 
     scene hotelRoom
@@ -258,8 +280,43 @@ label darkroom:
                 v "Jep. Erityisen pelottavaa, kun ei edes nähdä sitä roboottia..."
                 a "Äläpä muuta sano. Etsitään se ovi nopeasti."
 
+
+    scene black
+
+    pause 3.0
+
+    jump plants
+
+
+
+
+
+
+
+
+
+
+label plants:
+
+    scene hotelRoom
+
+    v "WOAH-"
+    a "Miten ihmeessä päädymme aina tänne..."
+    v "Ei yhtään hajua, mutta ehkä kolmas kerta toden sanoo."
+
+    scene black
     pause 3.0
     jump closingroom
+
+
+
+
+
+
+
+
+
+
 
 label closingroom:
     
@@ -276,14 +333,17 @@ label closingroom:
     
     scene whiteroom
     show valerie neutral at left
-    v "Hetkinen, tyhjä huone? Miksiköhän täällä ei ole mitään. Kuuluisiko meidän vain kävellä tästä läpi?"
+    v "Hetkinen, tyhjä huone? Miksiköhän täällä ei ole mitään paitsi tuo näyttö. Kuuluisiko meidän vain kävellä tästä läpi?"
     show anthony neutral at right
 
     a "Ehkä..."
     "..."
     a "Hallusinoinko minä, vai onko tämä huone jatkuvasti pienenemässä?"
     s "Terve taas rakkaat pelaajat!"
-    a "Ei taas."
+    "Huoneen toisella puolella oleva näyttö käynnistyy, ja siihen ilmestyy Wave."
+    show wave neutral
+    
+    a"Ei taas."
     v "Niin! Päästä meidät pois täältä! Me ollaan leikitty teidän leikkejä jo tarpeeksi pitkään!"
     s "Haha, te olette niin hassuja."
     s "Joka tapauksessa, tervetuloa minun LEMPI huoneeseen!"
@@ -294,7 +354,9 @@ label closingroom:
     a "Juokse, Val!"
     "Valorie ja Anthony alkavat juoksemaan kohti huoneen toista päätä, mutta seinät kuitenkin lähestyivät liian nopeasti."
     v "Ei tässä ole enään tilaa juosta!"
-    s "Kohta rakkaat seinämme antavat teille lämpimän halin <3"¨
+    hide wave neutral
+    show wave love
+    s "Kohta rakkaat seinämme antavat teille lämpimän halin <3"
     a "MITÄ IH-"
     "{i}PIIIIIIP{/i}"
     pause 3.0
@@ -343,4 +405,6 @@ label closingroom:
                 v "Kiitos Ant!"
                 a "Ei mitään."
 
+    scene black
 
+    pause 3.0
