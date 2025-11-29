@@ -5,7 +5,7 @@
 
 define v = Character("Valerie", color="74b849")
 define a = Character("Anthony",color="322240")
-define s = Character("System",color="2e3033")
+define s = Character("Wave", color="2e3033")
 
 # The game starts here.
 
@@ -13,11 +13,17 @@ label start:
     $ valeriePoints = 0
     $ anthonyPoints = 0
 
+
+    # Joku tausta + söpö robootti :D
+
     s "Hei! Tervettuloa pelaamaan meidän HUIKEAA peliä INSERT TOSI SIISTI PELI NIMI!"
     s "Pääsette seuraamaan kahden ihastuttavan henkilön kokemuksia ja tekemään hulvattoman hauskoja tehtäviä! :D"
     s "Valitkaa teistä yksi pelin tuomariksi ja jakakaa loput kahteen ryhmään (Ryhmä 1 ja Ryhmä 2)."
     s "{cps=2}...{/cps}"
-
+    s "OKEI!! Seuraavaksi ensimmäinen tiimi voisi astua olla kuulolla."
+    s "Te olette Valerien tiimissä!"
+    s "Sitten tiimi kaksi..."
+    s "Te olette rakkaan Anthonyn tiimissä!"
 
 label lavaroom1st:
 
@@ -63,33 +69,57 @@ label lavaroom1st:
     a "Ei tainut olla."
     v "Outoa. Ehkä me pääsemme siitä ulos!"
 
-    "Valerie kävelee oven luoksen Anthony perässään"
+    "Valerie harppaa nopein askelin ovelle Anthony perässään. Hän tarttuu oven kahvaan ja vääntää sen auki."
+    "Samalla huone täyttyy sietämättömällä kuumuudella."
+    # bg lava room
+    "Kaverusten katseet tarttuvat heti tuntemattomaan huoneeseen."
 
+    v "WOAH!"
+    a "Mitä ihmettä!?"
+    v "Onko tuo oikeaa laavaa?"
 
+    "Yhtäkkiä huoneen seinistä kuuluu roboottimaista puhetta."
+    s "Hei rakkaat ystävät! Tervetuloa laavahuoneeseen!"
+    "Valerie ja Anthony katsovat toisiaan hämmästyneenä."
+    s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan. Onnea!"
+    s "..."
+    v "Ömm... Haluatko sinä mennä ensin?"
+    a "..."
+    a "Okei sitten."
+
+    "Anthony alkaa liikkuu varovaisesti huonekalujen kautta kohti huoneen toista puolta."
+    "Nähtyään Anthonyn suorituksen, Valerie seuraa innokkaana perässä."
+    "Valerie yrittää hypätä sängylle, muttei osu siihen."
+
+    v "{cps=2}ÄÄH!!!{/cps}"
+
+    # Musta screen/ välähdys
 
     jump lavaroom2nd
-    return
 
 
 label lavaroom2nd:
     $ global valeriePoints
     #näytä hotellihuone
+
+    pause 3.0
     v "Hmm. Näin tosi outoa unta."
     #näytä val
-    a "Niin minäkin"
+    a "Niin minäkin..."
     #näytä ant
     v "Siinä me kävelimme tyhjästä ilmestyneestä ovesta huoneeseen, jonka lattia oli täysin laavan peitossa."
-    a "Mitä!? Näin itsekkin ihan samanlaista unta."
-    v "Katso! Tuossahan on se sama ovi mistä menimme unessa."
+    a "Oikeastiko? Näin itsekkin ihan samanlaista unta."
+    v "Katso! Tuossa on se sama ovi mistä menimme unessa."
     a "Niinpä onkin...Outoa"
-    v "Mitä?! Miten tämä kaikki on mahdollista?"
+    v "Miten tämä kaikki on mahdollista?"
     "Valerie kokeilee uudestaan hotellihuoneen ovea ja toteaa sen olevan yhä lukossa."
-    v "Miksipäs ei!"
-    "Valerie avaa nurkassa olevan mysteeri oven."
+    v "Meillä ei varmaan ole muita vaihtoehtoja."
+    "Valerie avaa nurkassa olevan mysteeri oven uudestaan."
     # näytä laavahuone ja piilota ahomot
-    v "Täällä on se sama laavahuone kuin aikaisemmin."
-    s "Tervetuloa laavahuoneeseen!"
-    s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan."
+    v "Täällä tosiaan on se sama laavahuone kuin aikaisemmin."
+    s "Hei rakkaat ystävät! Tervetuloa laavahuoneeseen!"
+    s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan. Onnea!"
+    
     "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa."
     "Tavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa."
     "Tämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla."
@@ -103,3 +133,5 @@ label lavaroom2nd:
             $ valeriePoints +=1
         "Anthony-tiimi":
             $ anthonyPoints +=1
+
+
