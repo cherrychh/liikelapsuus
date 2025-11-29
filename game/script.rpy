@@ -119,13 +119,11 @@ label lavaroom2nd:
     s "Hei rakkaat ystävät! Tervetuloa laavahuoneeseen!"
     s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan. Onnea!"
     
-
-    "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa."
-    "Tavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa."
-    "Tämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla."
-    "Saatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa."
-    "Se, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin."
-
+    
+    """{cps=3}Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa.\nTavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa.
+    Tämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla.\nSaatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa.
+    Se, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin.{/cps}"""
+    
     menu:
         "Kumpi tiimeistä voitti?"
 
@@ -133,5 +131,4 @@ label lavaroom2nd:
             $ valeriePoints +=1
         "Anthony-tiimi":
             $ anthonyPoints +=1
-
 
