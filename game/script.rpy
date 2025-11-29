@@ -1,6 +1,7 @@
 ﻿define v = Character("Valerie", color="74b849")
 define a = Character("Anthony",color="322240")
 define s = Character("Wave", color="2e3033")
+define text = Character("Tehtävä:", kind=nvl)
 
 image laavahuone = "Laavahuone.png"
 image hotelRoom = "Hotellihuone.png"
@@ -20,10 +21,23 @@ label start:
     s "Te olette Valerien tiimissä!"
     s "Sitten tiimi kaksi..."
     s "Te olette rakkaan Anthonyn tiimissä!"
+    s "Kaikki valmiina?"
+
+    menu:
+        "JOO!":
+            s "WOO! Niin sitä pitääkin, rakkaat pelaajat!"
+            s "Aloitetaan!"
+            pause 1.0
+        "Eip.":
+            s ""
+            pause 1.0
+
 
 label lavaroom1st:
 
     show hotelRoom
+
+    pause 2.0
     
     "Valerie ja Anthony ovat hyviä ystäviä, jotka ovat vuosien eron jälkeen vihdoin päässeet jälleen viettämään aikaa yhdessä. Ystyävykset ovat löytäneet mukavalta näyttävän hotellin, jossa he päättivät yöpyä."
     "Kaikki oli mennyt aivan mutkattomasti, mutta aamulla jotain outoa kuitenkin tapahtuu"
@@ -118,12 +132,13 @@ label lavaroom2nd:
     v "Täällä tosiaan on se sama laavahuone kuin aikaisemmin."
     s "Hei rakkaat ystävät! Tervetuloa laavahuoneeseen!"
     s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan. Onnea!"
-    
-    
-    """{cps=3}Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa.\nTavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa.
-    Tämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla.\nSaatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa.
-    Se, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin.{/cps}"""
-    
+
+    text "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa. 
+    Tavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa. 
+    Tämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla. 
+    Saatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa. 
+    Se, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin."
+
     menu:
         "Kumpi tiimeistä voitti?"
 
