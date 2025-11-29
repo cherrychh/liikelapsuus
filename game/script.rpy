@@ -263,11 +263,7 @@ label darkroom:
     a "Todellakin."
     scene black
     # Pimeää
-    "Valerie ja Anthony palaavat takaisin pimeään huoneeseen suorittamaan tehtävää."
-
-    show text "Tuomarilla on silmät sidottuna. Hän yrittää saada teidät kiinni. Jos jäät, häviät\nVoittaja on se, joka pystyy pakenemaan tuomarin kiinniottoa." at truecenter
-    ""
-    hide text
+    
 
 
     menu:
