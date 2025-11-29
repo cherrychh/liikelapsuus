@@ -4,24 +4,32 @@
 # name of the character.
 
 define v = Character("Valerie", color="74b849")
-define c = Character("Anthony",color="322240")
-define a = Character("System",color="2e3033")
+define a = Character("Anthony",color="322240")
+define s = Character("System",color="2e3033")
 
+$ valeriePoints = 0
+$ anthonyPoints = 0
 
 # The game starts here.
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    # hotelli huone tausta 
+    
+    "Valerie ja Anthony ovat hyviä ystäviä, jotka ovat vuosien eron jälkeen vihdoin päässeet jälleen viettämään aikaa yhdessä. Ystyävykset ovat löytäneet mukavalta näyttävän hotellin, jossa he päättivät yöpyä."
+    "Kaikki oli mennyt aivan mutkattomasti, mutta aamulla jotain outoa kuitenkin tapahtuu"
 
-    scene bg room
-    "a"
+    # show valerie
 
+    v "Hei Ant! Mennäänkö nyt aamupalalle? Näin eilen tuolla tien toisella puolella kivan kahvilan. Siellä näytti olevan kroisantteja, pullia ja kasin muotoisia rinkeleitä."
 
-    # This ends the game.
+    # show anthony
+    a "Mennään vaan."
 
+    "Anthony kävelee oven luokse ja vääntää kahvaa, mutta ovi näyttää olevan lukossa."
+
+    a "Ompa omituista..."
+    a "Tämä ovi vaikuttaa"
     return
 
 
@@ -35,4 +43,3 @@ label lavaroom2nd:
     a "Niin onkin…Outoa…"
     v "Miksi olisimme nähneet samaa unta?"
     a "En tiedä. Pitäsikö meidän avata tuo ovi"
-
