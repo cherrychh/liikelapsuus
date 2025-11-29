@@ -19,13 +19,13 @@ label splashscreen:
     with Pause(2)
 
     hide logo with dissolve
-    with Pause(1)
+    with Pause(0.5)
 
     show text "Tehty liikettä peleistä jameissa 2025" with dissolve
-    with Pause(2)
+    with Pause(1)
 
     hide text with dissolve
-    with Pause(1)
+    with Pause(0.5)
 
     return
 
