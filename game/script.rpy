@@ -86,7 +86,8 @@ label lavaroom2nd:
     "Valerie kokeilee uudestaan hotellihuoneen ovea ja toteaa sen olevan yhä lukossa."
     v "Miksipäs ei!"
     "Valerie avaa nurkassa olevan mysteeri oven."
-    # näytä laavahuone ja piilota ahomot
+    # näytä laavahuone ja piilota hahomot
+    scene bg "Laavahuone.png"
     v "Täällä on se sama laavahuone kuin aikaisemmin."
     s "Tervetuloa laavahuoneeseen!"
     s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan."
