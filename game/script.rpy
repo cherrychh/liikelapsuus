@@ -7,12 +7,11 @@ define v = Character("Valerie", color="74b849")
 define a = Character("Anthony",color="322240")
 define s = Character("System",color="2e3033")
 
-$ valeriePoints = 0
-$ anthonyPoints = 0
-
 # The game starts here.
 
 label start:
+    $ valeriePoints = 0
+    $ anthonyPoints = 0
 
     # hotelli huone tausta 
     
@@ -52,13 +51,12 @@ label start:
 
     "Valerie osoittaa nurkassa olevaa ovea."
 
-    
-
+    jump lavaroom2nd
     return
 
 
 label lavaroom2nd:
-
+    $ global valeriePoints
     #näytä hotellihuone
     v "Hmm. Näin tosi outoa unta."
     #näytä val
@@ -69,10 +67,23 @@ label lavaroom2nd:
     v "Katso! Tuossahan on se sama ovi mistä menimme unessa."
     a "Niinpä onkin...Outoa"
     v "Mitä?! Miten tämä kaikki on mahdollista?"
-    "Valerie kokeilee uudestaa ovea ja toteaa sen olevan yhä lukossa."
-    v "Miksipäs ei!"
+    "Valerie kokeilee uudestaan tavallista ovea ja toteaa sen olevan yhä lukossa."
+    v "Mehän voisimme avata unessa esiintyneen oven!"
     "Valerie avaa nurkassa olevan oven."
     # näytä laavahuone ja piilota ahomot
     v "Täällä on se sama laavahuone kuin aikaisemmin."
     s "Tervetuloa laavahuoneeseen!"
     s "Teidän tehtävänänne on päästä huoneen toiselle puolelle putoamatta laavaan."
+    "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa."
+    "Tavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa."
+    "Tämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla."
+    "Saatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa."
+    "Se, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin."
+
+    menu:
+        "Kumpi tiimeistä voitti?"
+
+        "Valerie-tiimi":
+            $ valeriePoints +=1
+        "Anthony-tiimi":
+            $ anthonyPoints +=1
