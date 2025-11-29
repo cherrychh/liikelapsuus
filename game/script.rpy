@@ -209,10 +209,10 @@ label darkroom:
     pause 3.0
 
     scene hotelRoom
+    show anthony neutral at right
     a "..."
     show valerie neutral at left
     v "Saiko se sinut kiinni?"
-    show anthony neutral at right
     a "Ehkä?"
     v "Noh, olisiko toinen yritys?"
     a "Todellakin."
@@ -247,7 +247,9 @@ label darkroom:
 label closingroom:
     
     scene hotelRoom
+    show valerie neutral at left
     v "Täällä taas..."
+    show anthony neutral at right
     a "Ehkä nyt me pääsemme pois täältä."
     "Anthony kokeilee avata ovea, muttei se edes liikahda. Hän huohkaisee syvään."
     v "Ja matka jatkuu."
@@ -256,7 +258,10 @@ label closingroom:
     a "Samaa mieltä."
     
     scene whiteroom
+    show valerie neutral at left
     v "Hetkinen, tyhjä huone? Miksiköhän täällä ei ole mitään. Kuuluisiko meidän vain kävellä tästä läpi?"
+        show anthony neutral at right
+
     a "Ehkä..."
     "..."
     a "Hallusinoinko minä, vai onko tämä huone jatkuvasti pienenemässä?"
