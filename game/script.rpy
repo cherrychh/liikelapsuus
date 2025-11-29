@@ -13,6 +13,8 @@ image whitedark:
   "whiteroom.png"
   matrixcolor OpacityMatrix(0.5)
 image logo = "logo.png"
+image dieroom = "dieroom.png"
+image plantroom = "plantroom.png"
 
 label splashscreen:
     scene black
