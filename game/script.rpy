@@ -13,10 +13,10 @@ label start:
     $ valeriePoints = 0
     $ anthonyPoints = 0
 
-    s "Hei! Tervettuloa pelaamaan meidän HUIKEAA peliä "INSERT TOSI SIISTI PELI NIMI"!"
+    s "Hei! Tervettuloa pelaamaan meidän HUIKEAA peliä INSERT TOSI SIISTI PELI NIMI!"
     s "Pääsette seuraamaan kahden ihastuttavan henkilön kokemuksia ja tekemään hulvattoman hauskoja tehtäviä! :D"
     s "Valitkaa teistä yksi pelin tuomariksi ja jakakaa loput kahteen ryhmään (Ryhmä 1 ja Ryhmä 2)."
-    s "{cps=10}...{/cps}"
+    s "{cps=1}...{/cps}"
 
 
 label lavaroom1st:
