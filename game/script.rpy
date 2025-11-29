@@ -17,6 +17,7 @@ label start:
     # images directory to show it.
 
     scene bg room
+    "a"
 
 
     # This ends the game.
