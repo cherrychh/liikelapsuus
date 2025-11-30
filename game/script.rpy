@@ -260,20 +260,15 @@ label darkroom:
     v "Noh. Mennään sitten takaisin sinne laava huoneeseen. Ehkä se robootti ääni pystyy auttamaan meitä?"
     scene black
     "Valerie ja Anthon kävelee mysteeri huoneeseen, mutta tällä kertaa siellä ei olekaan laavaa ja huonekaluja."
-    pause darknessflashtime
-    show valerie nervousb at left
-    show anthony neutral at right
+    pause 1.0
     v "Ant?"
     a "Täällä."
     v "Tämä ei todellakaan ole se sama huone kuin äsken."
     v "Miten täällä kuuluisi nähdä yhtään mitään!?"
     "Yhtäkkiä odottamaton tuulenpuuska saa heidät kananlihalle. Selkäpiitä alkaa karmia tuntematon pimeässä huoneessa vaaniva uhka."
-    show wave neutral
     s "Tervetuloa pilkko pimeään huoneeseen! Niin kuin huomaatte, ette näe yhtään mitään. Tästä seuraakin teidän seuraava tehtävä."
     s "Teidän pitää väistää minua samalla kun yritätte löytää oven, jolla pääsette pois huoneesta!"
-    show anthony angry at right
     a "Mitä ihmettä."
-    show wave laugh
     s "Hauskaa, eikö? :)"
     a "No e-"
     pause darknessflashtime
@@ -627,7 +622,7 @@ label dieRoom:
     ""
     hide text
     python:
-        narrator(f"Mikä numero nopasta tuli? (jos heitto {kautetutnumerot[0]} tai {kautetutnumerot[0]} niin heitä uudelleen)", interact=False)
+        narrator(f"Mikä numero nopasta tuli? (jos heitto {kautetutnumerot[0]} tai {kautetutnumerot[1]} niin heitä uudelleen)", interact=False)
         result = renpy.display_menu([(str(kauttamattomatnumerot[0]), str(kauttamattomatnumerot[0])),
         (str(kauttamattomatnumerot[1]), str(kauttamattomatnumerot[1])),
         (str(kauttamattomatnumerot[2]), str(kauttamattomatnumerot[2])),
@@ -774,8 +769,8 @@ label lastroom:
         s "Noh, mitäs sanot? Leikitäänkö, Val?"
     else:
         "Tie vapauteen on muutaman askeleen päässä. Ovi ulos aukeaa Anthonyn silmien edessä ja hän astuu siitä ulos. Anthony katsoo taakse Valerieta."
+        "Oli hiljaista, palloja ammuttiin yhä seinistä, mutta odotettua juhlistusta ja syytä ilolle ei ollut. Valerie oli hiljaa. Hänellä oli vielä hymy ennen kuin hän kaatuu tyhjyyteen-"
         scene hotecorridor
-        "Oli hiljaista, palloja ammuttiin yhä seinistä, mutta odotettua juhlistusta ja syytä ilolle ei ollut. Valerie oli hiljaa. Hänellä oli vielä hymy enne kun hän kaatuu tyhjyyteen-"
         show anthony shock at right
         a "VAL! VAL!!!"
         "Anthony alkaa heti juoksemaan kohti ovea, mutta enne kun hän pääsee takaisin huoneeseen, ovi sulkeutuu... lopullisesti."
