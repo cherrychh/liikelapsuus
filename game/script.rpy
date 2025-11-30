@@ -506,9 +506,10 @@ label closingroom:
 
 label dieRoom:
     scene hotelRoom
-
+    show valerie neutral at left
     v "WOAH..."
     v "Tässä kohtaa tämä ei enään yllätä ketään."
+    show anthony neutral at right
     a "Jep. Ehkä tällä kertaa?"
     v "Toivotaan niin."
     "Valerie ja Anthony kävelevät mysteerihuoneen oven luokse ja hengittävät syvään."
@@ -522,8 +523,9 @@ label dieRoom:
     s "Noppa, noppa? Noppa! Heippa ystävät! Tällä kertaa huoneen keskellä on suuri kahdeksansivuinen noppa, joka varmasti houkuttelee teitä heittämään sitä!"
     s "Niin kuin havaitsittekin, noppalla on suurin tehtävä tässä huoneessa. Teidän tehtävänä onkin selvittää, mikä merkitys sillä on."
     s "Onnea jälleen kerran, sillä sitä tulette tarvitsemaan tällä kertaa erityisen paljon, hihi ;)"
-    
+    show valerie neutral at left
     v "Eli... Me varmaan heitetään noppaa, eikö?"
+    show anthony neutral at right
     a "No, en näe mitään muuta vaihtoehtoa myöskään."
     v "Minä voin heittä ensimmäisenä!"
     "Valerie kävelee suuren nopan luokse ja potkaisee sitä."
@@ -535,8 +537,9 @@ label dieRoom:
     pause darknessflashtime
 
     scene hotelRoom
-
+    show valerie neutral at left
     v "ööh?"
+    show anthony neutral at right
     a "Ehkä sinun saama arvo oli liian pieni."
     v "Mitää? Onko tämä pelkästään tuurista kiinni? Onpa epäreilua."
     a "Joo, kokeillaanko uudelleen?"
@@ -612,8 +615,10 @@ label dieRoom:
         "Kumpi tiimeistä voitti useammin?"
         "Valerie-tiimi":
             $ valeriePoints +=1
+            show anthony neutral at right
             a "Numero 7?"
             s "Wow, onneksi olkoon! Nyt on rakkaan Valin vuoro!"
+            show valerie neutral at left
             v "Häh? Mitä minun siis pitää saada, jotta pääsemme eteenpäin?"
             s "Ai niin! Unohdin kertoa. Hupsis!"
             s "Siis, teidän teidän pitää saada ensimmäisellä kerralla numero 8 TAI saada heittojen summaksi 15!"
@@ -626,7 +631,9 @@ label dieRoom:
 
         "Anthony-tiimi":
             $ anthonyPoints +=1
+            show anthony neutral at right
             a "Numero 8."
+            show valerie neutral at left
             v "Oho! Hyvä Ant!"
             s "Onneksi olkoon, pääsette suoraan jatkoon, sillä rakas Ant heitti meidän lempi numeromme!"
             v "Jes!"
@@ -657,8 +664,9 @@ label lastroom:
     s "Tervetuloa jälleen rakkaat kaverit! Tällä kertaa olette saapuneet meidän upouuteen ninjahuoneeseen."
     s "Eli siis, jos te välttämättä haluatte lähteä meidän mahtavasta luomuksesta, suorittakaa antamani tehtävä."
     s "Tiedän pitää vain väistää seinistä lentäviä erilaisia palloja. Ei kannata joutua osutuksi, koska... no ette halua tietää."
-
+    show valerie neutral at left
     v "Okei, vaikuttaa tarkeeksi yksinkertaiselta. Minä voin mennä ensin."
+    show anthony neutral at right
     a "Okei. Olethan varovainen."
     v "Joo."
 
@@ -667,10 +675,11 @@ label lastroom:
     a "VAL!"
     "Valerieiin osuu lentopallo, ja hän tippuu tyhjyyteen."
 
-    pause darkenssflashtime
+    pause darknessflashtime
     scene hotelRoom
-
+    show anthony neutral at right
     a "Val, oletko kunnossa?"
+    show valerie neutral at left
     v "Huh... Joo, luulen että olen ihan kunnossa."
     a "..."
     v "Älä nyt, olen kunnossa. Mennäänkö uudestaan?"
@@ -683,9 +692,11 @@ label lastroom:
 
     # korjaa tehtävänanto ###############################################################################
     scene black
-    show text "tehtävänanto liian pitkä fix" at truecenter
+    show ninjadark
+    show text "1. Alussa mennään piiriin jossa olette vieri vieressä.\n\n2.Kaikki hyppää samaan aikaan yksi hyppy taaksepäin ja “jäädytään” itse valittuun ninja-asentoon.\n\n3.Vanhin aloittaa ja yrittää osua kenen tahansa käteen. Molemmat saavat liikuttaa toista jalkaa ja heidän on “jäädyttävä” uuteen asentoon. Jos kilpailijan käteen osutaan, hänen pitää laittaa se käsi selän taakse. Kun kilpailijan molemmat kädet ovat selän takana, hän tippuu pelistä.\n\n3.Vuorot etenevät myötäpäivään ja kilpailija voi “hyökätä” kenen tahansa muun suuntaan ja yrittää koskettaa hänen pelissä mukana olevaa kättä. Joka hyökkäyksellä ja puolustuksella voi siirtää vain toista jalkaa.\n\n4.Viimeinen kilpailija jolla on ainakin toinen käsi mukana pelissä, voittaa." at truecenter
     ""
     hide text
+    scene ninjaroom
     menu:
         "Kumpi tiimeistä voitti?"
         "Valerie-tiimi":
