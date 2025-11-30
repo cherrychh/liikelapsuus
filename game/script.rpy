@@ -25,6 +25,7 @@ image ninjaroom = "ninjaroom.png"
 image ninjadark:
   "ninjaroom.png"
   matrixcolor OpacityMatrix(0.5)
+image hotecorridor = "Hotellikaytava.png"
 
 label splashscreen:
     scene black
