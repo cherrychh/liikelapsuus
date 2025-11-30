@@ -286,7 +286,7 @@ label darkroom:
     scene hotelRoom
     show anthony worry at right
     a "..."
-    show valerie worry at left
+    show valerie think at left
     v "Saiko se sinut kiinni?"
     a "Ehkä?"
     v "Noh, olisiko toinen yritys?"
@@ -364,7 +364,7 @@ label plants:
     show anthony neutral at right
     a "Eip-"
     "Yhtäkkiä heidän takaa ilmestyy lihansyöjäkasvi, joka nappaa heidät molemmat."
-    show valerie nervousa
+    show valerie show at left
     v "ÄÄH!"
     scene black
     pause darknessflashtime
@@ -425,8 +425,8 @@ label closingroom:
     
     scene hotelRoom
     show valerie neutral at left
-    v "Täällä taas..."
-    show anthony neutral at right
+    v "Täällä taas, hehe..."
+    show anthony happyb at right
     a "Ehkä nyt me pääsemme pois täältä."
     "Anthony kokeilee avata ovea, muttei se edes liikahda. Hän huohkaisee syvään."
     v "Ja matka jatkuu."
@@ -435,11 +435,12 @@ label closingroom:
     a "Samaa mieltä."
     
     scene whiteroom
-    show valerie neutral at left
+    show valerie nervousa at left
     v "Hetkinen, tyhjä huone? Miksiköhän täällä ei ole mitään paitsi tuo näyttö. Kuuluisiko meidän vain kävellä tästä läpi?"
     show anthony neutral at right
     a "Ehkä..."
     "..."
+    show anthony worry at right
     a "Hallusinoinko minä, vai onko tämä huone jatkuvasti pienenemässä?"
     s "Terve taas rakkaat pelaajat!"
     "Huoneen toisella puolella oleva näyttö käynnistyy, ja siihen ilmestyy Wave."
@@ -447,28 +448,33 @@ label closingroom:
     
     a"Ei taas."
     v "Niin! Päästä meidät pois täältä! Me ollaan leikitty teidän leikkejä jo tarpeeksi pitkään!"
+    show wave laugh
     s "Haha, te olette niin hassuja."
     s "Joka tapauksessa, tervetuloa minun LEMPI huoneeseeni!"
     s "Täällä seinät eivät ole niin pysyviä kuin mitä uskotte, hihi! Seinät lähestyvät jatkuvasti kohti huoneen keskustaa, joten litistytte ellette ryhdy heti tosi toimiin."
     s "Onnea teille, sillä tulette tarvitsemaan sitä ;)"
+    show valerie scared at left
     v "M-mitäh!?"
-
+    show anthony worry at right
     a "Juokse, Val!"
     "Valorie ja Anthony alkavat juoksemaan kohti huoneen toista päätä, mutta seinät kuitenkin lähestyivät liian nopeasti."
     v "Ei tässä ole enään tilaa juosta!"
     show wave love
     s "Kohta rakkaat seinämme antavat teille lämpimän halin <3"
+    show anthony angry at right
     a "MITÄ IH-"
     "{i}PIIIIIIP{/i}"
     scene black
     pause darknessflashtime
 
     scene hotelRoom
-    show valerie neutral at left
+    show valerie scared at left
     v "KÄÄK!"
-    show anthony neutral at right
+    show anthony worry at right
     a "Tuo oli stressaavaa."
+    show valerie neutral at left
     v "Äläpä muuta sano... Mutta tällä kertaa paremmin, eikö?"
+    show anthony happyb at right
     a "Jep."
     "He siirtyvät suoraan mysteeri huoneeseen ilman hotellihuoneen oven kokeilemista."
     
@@ -478,7 +484,7 @@ label closingroom:
     s "..."
     show wave neutral
     s "Huomenta... pelaajat."
-    show valerie neutral at left
+    show valerie happy at left
     v "Juostaan nyt!"
     s "HEI! Kauhean epäkohteliasta D:<"
 
@@ -495,14 +501,16 @@ label closingroom:
         "Valerie-tiimi":
             $ valeriePoints +=1
             "Valerie pääsee ensimmäisenä huoneen toiselle puolelle, mutta anthonylla on vielä jonkin verran matkaa jäljellä."
-            show valerie neutral at left
+            show valerie nervousa at left
             v "Ant!"
             "Seinät alkavat painamaan Anthonyn kylkiä."
             "Valerie ottaa kiinni sulkeutuvista seinistä ja kaikilla voimillaan onnistuu pystäyttämään seinät sulkeutumasta."
+            show wave angry
             s "TÄH??? MI-MITEN???"
             s "ÄLKÄÄ RIKKOKO MINUN RAKKAITA SEINIÄNI SENKIN SEKOPÄÄT! >:O"
-            show anthony neutral at right
+            show anthony happyb at right
             a "Ei sinun olisi tarvinnut auttaa."
+            show valerie happy at left
             v "Hehe, kyllä yksinkertainen kiitos olisi myös riittänyt."
             a "...Huoh, kiitos Val."
             v "Ei mitään~"
@@ -512,9 +520,10 @@ label closingroom:
             $ anthonyPoints +=1
             show valerie neutral at left
             v "Ei sinun olisi tarvinnut auttaa."
-            show anthony neutral at right
+            show anthony happya at right
             a "Kyllä yksinkertainen kiitos olisi myös riittänyt."
             v "Kiitos Ant!"
+            show anthony neutral at right
             a "Ei mitään."
 
     scene black
