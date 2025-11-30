@@ -501,7 +501,34 @@ label dieRoom:
     show text "Tuomari heittää noppaa, ja nopan silmäluku kertoo teille, minkä haasteen teidän täytyy suorittaa.\nNoppaa heitetään kolme kertaa, eli haasteita on kolme.\nEniten haasteista voittanut joukkue, voittaa." at truecenter
     ""
     hide text
-    
+    python:
+        tehtavat = ["Kaikki pelaajat asettuvat vaaka-asentoon kädet sivuille ojennettuina, ja toinen jalka mahdollisimman ylös kohotettuna.\nSekä käsien, että jalkojen tulee olla suoriksi ojennettuina.\nSe, joka pysyy asennossa kauemmin ottamatta tukea voittaa haasteen joukkueelleen.","b","c","d","e","f"]
+        kauttamattomatnumerot = [1,2,3,4,5,6]
+        kautetutnumerot = []
+        narrator("Mikä numero nopasta tuli?", interact=False)
+        result = renpy.display_menu([(str(kauttamattomatnumerot[0]), str(kauttamattomatnumerot[0])),
+        (str(kauttamattomatnumerot[1]), str(kauttamattomatnumerot[1])),
+        (str(kauttamattomatnumerot[2]), str(kauttamattomatnumerot[2])),
+        (str(kauttamattomatnumerot[3]), str(kauttamattomatnumerot[3])),
+        (str(kauttamattomatnumerot[4]), str(kauttamattomatnumerot[4])),
+        (str(kauttamattomatnumerot[5]), str(kauttamattomatnumerot[5]))])
+        kautetutnumerot.append(kauttamattomatnumerot.pop(int(result)-1))
+    show text tehtavat[int(result)-1]
+    ""
+    hide text
+        
+        narrator(f"Mikä numero nopasta tuli? (jos tuli {kautetutnumerot[0]} niin heitä noppaa uudelleen)", interact=False)
+        result = renpy.display_menu([(str(kauttamattomatnumerot[0]), str(kauttamattomatnumerot[0])),
+        (str(kauttamattomatnumerot[1]), str(kauttamattomatnumerot[1])),
+        (str(kauttamattomatnumerot[2]), str(kauttamattomatnumerot[2])),
+        (str(kauttamattomatnumerot[3]), str(kauttamattomatnumerot[3])),
+        (str(kauttamattomatnumerot[4]), str(kauttamattomatnumerot[4]))])
+        kautetutnumerot.append(kauttamattomatnumerot.pop(int(result)-1))
+        renpy.show(text(tehtavat[int(result)-1]))
+        narrator("")
+        renpy.scene(Solid("000"))
+        renpy.show(diedark)
+
     scene dieroom
     menu:
         "Kumpi tiimeistä voitti useammin?"
