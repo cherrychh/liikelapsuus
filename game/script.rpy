@@ -256,7 +256,7 @@ label darkroom:
     v "ÄÄh!!"
     v "..."
     v "Ollaan taas täällä?"
-    show anthony worry at right
+    show anthony neutral at right
     a "Näköjään. Onkohan se ovi nyt auki?"
     "Anthony kokeilee kahvaa ja huokaisee."
     v "Vielä lukossa?"
@@ -265,14 +265,19 @@ label darkroom:
     scene black
     "Valerie ja Anthon kävelee mysteeri huoneeseen, mutta tällä kertaa siellä ei olekaan laavaa ja huonekaluja."
     pause darknessflashtime
+    show valerie nervousb at left
+    show anthony neutral at right
     v "Ant?"
     a "Täällä."
     v "Tämä ei todellakaan ole se sama huone kuin äsken."
     v "Miten täällä kuuluisi nähdä yhtään mitään!?"
     "Yhtäkkiä odottamaton tuulenpuuska saa heidät kananlihalle. Selkäpiitä alkaa karmia tuntematon pimeässä huoneessa vaaniva uhka."
+    show wave neutral
     s "Tervetuloa pilkko pimeään huoneeseen! Niin kuin huomaatte, ette näe yhtään mitään. Tästä seuraakin teidän seuraava tehtävä."
     s "Teidän pitää väistää minua samalla kun yritätte löytää oven, jolla pääsette pois huoneesta!"
+    show anthony angry at right
     a "Mitä ihmettä."
+    show wave laugh
     s "Hauskaa, eikö? :)"
     a "No e-"
     pause darknessflashtime
@@ -281,7 +286,7 @@ label darkroom:
     scene hotelRoom
     show anthony worry at right
     a "..."
-    show valerie neutral at left
+    show valerie worry at left
     v "Saiko se sinut kiinni?"
     a "Ehkä?"
     v "Noh, olisiko toinen yritys?"
@@ -297,11 +302,14 @@ label darkroom:
         "Valerie-tiimi":
             $ valeriePoints +=1
             "Robootti kävelee suoraan kohti Anthonia, mutta Valerie ehtii löytämään oven, ennen kun hän jää kiinni."
+            show valerie happy at left
             v "Löytyi! Nyt me vihdoin pääsemme täältä pois!"
         "Anthony-tiimi":
             $ anthonyPoints +=1
             "Robootti hipaisee Valerien vierestä, mutta Anthony vetää hänet puoleensa ja pelastaa hänet."
+            show anthony shock at right
             a "Läheltä piti."
+            show valerie think at left
             v "Jep. Erityisen pelottavaa, kun ei edes nähdä sitä robottia..."
             a "Äläpä muuta sano. Etsitään se ovi nopeasti."
 
@@ -321,7 +329,7 @@ label darkroom:
 label plants:
 
     scene hotelRoom
-    show valerie neutral at left
+    show valerie nervousb at left
     v "WOAH-"
     show anthony neutral at right
     a "Miten ihmeessä päädymme aina tänne..."
@@ -329,10 +337,11 @@ label plants:
     "Anthony kokeilee hotellihuoneen ovea vielä kerran ennen kuin he lähtevät taas mysteerihuoneeseen."
 
     scene plantroom
-    show valerie neutral at left
+    show valerie happy at left
     v "Uuu, mikä viidakko! Täällä voisin olla päivät pitkät!"
-    show anthony neutral at right
+    show anthony worry at right
     a "Öhh, minä en... Varo tuota lihansyöjäkasvia."
+    show valerie nervousa at left
     v "Hui! Läheltä piti! Tämä ei ehkä sittenkään ole kauhean mukava paikka..."
     a "Joo, ollaan tarkkoina, ettei kuoltaisi."
 
@@ -340,28 +349,32 @@ label plants:
 
     s "Hei rakkaat mussukat, eikun ihmiset, jos edes olette niitä. Tervetuloa viidakon maailmaan! Tämä oli sinua varten tehty Val! <3"
     v "Ahaa... Kiitti. Olisit ehkä voinut jättää lihansyöjä kasvit pois."
+    show wave angry # wave sad?
     s "Etkö pidä niistä? :c"
     v "No siis... En?"
     s "..."
+    show wave neutral
     s "Mutta siis, asiaan. Rumpujen pärinää... Jossain täällä on ovi, joka johtaa teidät pois täältä. Kenties jossain kasvuston seassa."
     s "Teidän tehtävänä on löytää ovi, mutta varokaa myös huoneen lihansyöjäkasveja... ettei kävisi pahasti."
     s "Tsemppiä etsimiseen, jos nyt haluatte lähteä tästä ihanasta paikasta!"
 
     "Valerie ja Anthony yrittävät löytää ovea kasvien seasta, mutta sitä ei löydy mistään."
+    show valerie neutral at left
     v "Löytyykö sitä sieltä?"
     show anthony neutral at right
     a "Eip-"
     "Yhtäkkiä heidän takaa ilmestyy lihansyöjäkasvi, joka nappaa heidät molemmat."
+    show valerie nervousa
     v "ÄÄH!"
     scene black
     pause darknessflashtime
 
     scene hotelRoom
-    # show valerie stressaantunut?
-    show valerie neutral at left
+    show valerie nervousb at left
     v "..."
+    show anthony neutral at right
     a "Hei, saatan tietää missä päin se ovi on."
-    # valerie piristynyt?
+    show valerie happy at left
     v "Jes! Mennään sitten!"
 
     scene plantroom
@@ -385,21 +398,22 @@ label plants:
             $ valeriePoints +=1
             "Anthonyn takaata ilmestyy lihansyöjäkasvi, joka valmistautuu hyökkäykseen."
             "Valerie kuitenkin ehtii iskemään kasvia Wave:llä ja murskaa sen."
+            show valerie neutral
             show wave love
             s "{i}Apua, Val rakastaa minua!{/i}"
             s "IIK! Minäkin rakastan sinua Val!"
-            show valerie neutral at left # HÄMMENTYNYT? jooo
+            show valerie nervousa at left
             v "Mitäh? Okei?"
             "He lopulta löytävät oven ja avaavat sen..."
         "Anthony-tiimi":
             "Valerie meinaa kaatua, mutta Anthony ehtii ottamaan hänestä kiinni ja estämään hänet kaatumasta."
             $ anthonyPoints +=1
-            show anthony neutral at right
+            show anthony happya at right
             a "Mitäs mieltä olet nyt tästä huoneesta?"
-            show valerie neutral at left
+            show valerie nervousa at left
             v "Älä edes aloita, Ant."
     v "Minusta kyllä tulee tästä lähtien kasvissyöjä. Todistan niille ilkeille kasveille, että minä syön niitä, eivätkä ne minua."
-    show anthony neutral at right
+    show anthony happyb at right
     a "Ahaa. Minusta ei kyllä tule kasvinsyöjää. En edes halua koskea niihin enään tämän jälkeen..."
     "He lopulta löytävät oven ja avaavat sen..."
 
