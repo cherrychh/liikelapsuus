@@ -21,6 +21,10 @@ image plantroom = "plantroom.png"
 image plantdark:
   "plantroom.png"
   matrixcolor OpacityMatrix(0.5)
+image ninjaroom = "ninjaroom.png"
+image ninjadark:
+  "ninjaroom.png"
+  matrixcolor OpacityMatrix(0.5)
 
 label splashscreen:
     scene black
@@ -45,13 +49,22 @@ label start:
 
     $ valeriePoints = 0
     $ anthonyPoints = 0
+    $ numberOfPlayers = 4
 
 
     # Joku tausta + söpö robootti :D
 
     s "Hei! Tervettuloa pelaamaan meidän HUIKEAA peliä 'ROOM'!"
     s "Pääsette seuraamaan kahden ihastuttavan henkilön kokemuksia ja tekemään hulvattoman hauskoja tehtäviä! :D"
-    s "Valitkaa teistä yksi pelin tuomariksi ja jakakaa loput kahteen ryhmään (Ryhmä 1 ja Ryhmä 2)."
+    s "Valitkaa teistä yksi pelin tuomariksi"
+    menu:
+        "kuinka paljon pelaajia on tuomarin lisäksi?"
+        "2-6":
+            $ numberOfPlayers = 4
+        "6+":
+            $ numberOfPlayers = 7
+            s"Vau! teitähän on paljon."
+    s"Jakakaa loput pelaajat kahteen ryhmään (Ryhmä 1 ja Ryhmä 2)."
     s "{cps=2}...{/cps}"
     s "OKEI!! Seuraavaksi ensimmäinen tiimi voisi astua olla kuulolla."
     s "Te olette Valerien tiimissä!"
@@ -510,6 +523,8 @@ label dieRoom:
         "Kaikki menevät lankkuasentoon, ja yrittävät pysyä mahdollisimman kauan laukussa. Haasteen voittaa se joukkue, jonka pelaaja pysyy kauiten lankussa. ",
         "Molemmista joukkueista valitaan yksi joukkuetta edustava pelaaja. Kivi-sakset-paperilla valitaan kumpi joukkue aloittaa suorituksen. Tuomari ottaa aikaa ja laskee tehtyjen vatsalihasten määrän. Se joukkue, joka tekee enemmän vatsalihaksia 30 sekunnissa, voittaa haasteen.",
         "joku tehtävä"]
+        if numberOfPlayers > 6:
+            tehtavat[1] = "1. Pelaajat menevät rinkiin siten, että joka toinen on toisesta joukkueesta.\n\n2. Yksi pelaajista aloittaa siirtäen toisen jalkansa kiinni seuraavan ringissä  seisovan jalkaan.\n\n3. Vuoro siirtyy tälle pelaajalle ja hän siirtää sen jalan, johon edellinen pelaaja koski, kiinni kolmannen pelaajan jalkaan.\n\n4. Jos pelaaja kaatuu tai ei pysty siirtämään jalkaansa, hän putoaa pelistä ja vuoro siirtyy seuraavalle.\n\n4. Pelaajien järjestys ringissä säilyy samana, joten pelaaja siirtää jalkansa aina saman pelaajan jalkaan kunnes tämä putoaa pelistä.\n\n5. Jos rinki tai välit pelaajien välillä jäävät liian suureksi, pelaajat voivat pienentää rinkiä.\n\n6. Peli päättyy, kunnes ringissä on vain kaksi pelaajaa jäljellä ja nämä kaksi ovat voittajia.\n\n\n\n "
         kauttamattomatnumerot = [1,2,3,4,5,6,7,8]
         kautetutnumerot = []
         narrator("Mikä numero nopasta tuli?", interact=False)
