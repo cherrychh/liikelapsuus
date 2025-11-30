@@ -17,9 +17,9 @@ image dieroom = "dieroom.png"
 image diedark:
   "dieroom.png"
   matrixcolor OpacityMatrix(0.5)
-image plantroom = "dieroom.png"
+image plantroom = "plantroom.png"
 image plantdark:
-  "dieroom.png"
+  "plantroom.png"
   matrixcolor OpacityMatrix(0.5)
 
 label splashscreen:
@@ -163,7 +163,7 @@ label lavaroom1st:
 label lavaroom2nd:
 
     scene hotelRoom
-    pause 2.0
+    pause 1.0
     show valerie neutral at left
     v "Hmm. Näin tosi outoa unta."
     show anthony neutral at right
@@ -267,7 +267,7 @@ label darkroom:
     v "Noh, olisiko toinen yritys?"
     a "Todellakin."
     scene black
-    show text "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa. \nTavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa.\nTämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla.\nSaatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa.\nSe, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin." at truecenter
+    show text "Tuomarilla on silmät sidottuna ja hän yrittää saada teidät kiinni. Jos jäät, häviät.\nVoittaja on se, joka pysyy pelissä kauiten mukana." at truecenter
     ""
     hide text
     
@@ -284,9 +284,6 @@ label darkroom:
             a "Läheltä piti."
             v "Jep. Erityisen pelottavaa, kun ei edes nähdä sitä robottia..."
             a "Äläpä muuta sano. Etsitään se ovi nopeasti."
-
-
-    scene black
 
     pause darknessflashtime
 
@@ -312,8 +309,9 @@ label plants:
     "Anthony kokeilee hotellihuoneen ovea vielä kerran ennen kuin he lähtevät taas mysteerihuoneeseen."
 
     scene plantroom
-
+    show valerie neutral at left
     v "Uuu, mikä viidakko! Täällä voisin olla päivät pitkät!"
+    show anthony neutral at right
     a "Öhh, minä en... Varo tuota lihansyöjäkasvia."
     v "Hui! Läheltä piti! Tämä ei ehkä sittenkään ole kauhean mukava paikka..."
     a "Joo, ollaan tarkkoina, ettei kuoltaisi."
@@ -331,6 +329,7 @@ label plants:
 
     "Valerie ja Anthony yrittävät löytää ovea kasvien seasta, mutta sitä ei löydy mistään."
     v "Löytyykö sitä sieltä?"
+    show anthony neutral at right
     a "Eip-"
     "Yhtäkkiä heidän takaa ilmestyy lihansyöjäkasvi, joka nappaa heidät molemmat."
     v "ÄÄH!"
@@ -339,6 +338,7 @@ label plants:
 
     scene hotelRoom
     # show valerie stressaantunut?
+    show valerie neutral at left
     v "..."
     a "Hei, saatan tietää missä päin se ovi on."
     # valerie piristynyt?
@@ -347,13 +347,14 @@ label plants:
     scene plantroom
     show wave neutral
     s "Hei rakkaat mussukat, eikun-"
+    show anthony neutral at right
     a "Se taisi olla jossain täällä."
     show wave angry
     s "Törkeää! >:("
     
     scene black
     show plantdark
-    show text "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa. \nTavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa.\nTämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla.\nSaatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa.\nSe, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin." at truecenter
+    show text "Tehtävänne on seuraava.\nTarkkailkaa tuomarin liikkeitä ja kopioikaa niitä.\nJos tuomari huomaa eroavaisuuksia liikkeissänne, pelinne on pelattu.\nVoittaja on se, joka pysyy pisimpään pelissä mukana." at truecenter
     ""
     hide text
     scene plantroom
@@ -367,31 +368,24 @@ label plants:
             show wave love
             s "{i}Apua, Val rakastaa minua!{/i}"
             s "IIK! Minäkin rakastan sinua Val!"
-            show valerie neutral at left # HÄMMENTYNYT?
+            show valerie neutral at left # HÄMMENTYNYT? jooo
             v "Mitäh? Okei?"
             "He lopulta löytävät oven ja avaavat sen..."
         "Anthony-tiimi":
             "Valerie meinaa kaatua, mutta Anthony ehtii ottamaan hänestä kiinni ja estämään hänet kaatumasta."
             $ anthonyPoints +=1
+            show anthony neutral at right
             a "Mitäs mieltä olet nyt tästä huoneesta?"
+            show valerie neutral at left
             v "Älä edes aloita, Ant."
     v "Minusta kyllä tulee tästä lähtien kasvissyöjä. Todistan niille ilkeille kasveille, että minä syön niitä, eivätkä ne minua."
+    show anthony neutral at right
     a "Ahaa. Minusta ei kyllä tule kasvinsyöjää. En edes halua koskea niihin enään tämän jälkeen..."
     "He lopulta löytävät oven ja avaavat sen..."
 
     scene black
     pause darknessflashtime
     jump closingroom
-
-
-
-
-
-
-
-
-
-
 
 label closingroom:
     
@@ -410,7 +404,6 @@ label closingroom:
     show valerie neutral at left
     v "Hetkinen, tyhjä huone? Miksiköhän täällä ei ole mitään paitsi tuo näyttö. Kuuluisiko meidän vain kävellä tästä läpi?"
     show anthony neutral at right
-
     a "Ehkä..."
     "..."
     a "Hallusinoinko minä, vai onko tämä huone jatkuvasti pienenemässä?"
@@ -457,7 +450,7 @@ label closingroom:
 
     scene black
     show whitedark
-    show text "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa. \nTavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa.\nTämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla.\nSaatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa.\nSe, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin." at truecenter
+    show text "Valitkaa molemmista pelaaja, joka on hippa.\nHipan tehtävänä on ottaa vastustajajoukkueen kaikki pelaajat kiinni.\nKiinniotosta otetaan aikaa, ja vähiten aikaa tarvinnut joukkue voittaa pelin." at truecenter
     ""
     hide text
     scene whiteroom
@@ -473,7 +466,7 @@ label closingroom:
             "Seinät alkavat painamaan Anthonyn kylkiä."
             "Valerie ottaa kiinni sulkeutuvista seinistä ja kaikilla voimillaan onnistuu pystäyttämään seinät sulkeutumasta."
             s "TÄH??? MI-MITEN???"
-            s "ÄLKÄÄ RIKKOKO MINUN RAKKAITA LUOMUKSIANI SENKIN SEKOPÄÄT! >:O"
+            s "ÄLKÄÄ RIKKOKO MINUN RAKKAITA SEINIÄNI SENKIN SEKOPÄÄT! >:O"
             show anthony neutral at right
             a "Ei sinun olisi tarvinnut auttaa."
             v "Hehe, kyllä yksinkertainen kiitos olisi myös riittänyt."
@@ -483,7 +476,6 @@ label closingroom:
             "Anthony pääsee ensimmäisenä huoneen toiselle puolelle, mutta valeriella on vielä jonkin verran matkaa jäljellä."
             "Nähtyään Valerien, Anthony juoksee hänen luokseen ja auttaa häntä pääsemään huoneen toiselle puolelle."
             $ anthonyPoints +=1
-            "Va"
             show valerie neutral at left
             v "Ei sinun olisi tarvinnut auttaa."
             show anthony neutral at right
@@ -496,17 +488,27 @@ label closingroom:
     pause darknessflashtime
     jump dieRoom
 
+
+# laita aina ennen "show [hahmon nimi] neutral(tai joku muu tunne)" kun  niien eka repliikki scenen vaihdon jälkeen tulee nii mun ei tarvii laittaa niit jälkikäteen
+
 label dieRoom:
-    scene dieRoom
+    scene dieroom
 
 
     # tehtävä
     scene black
     show diedark
-    show text "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa. \nTavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa.\nTämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla.\nSaatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa.\nSe, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin." at truecenter
+    show text "Tuomari heittää noppaa, ja nopan silmäluku kertoo teille, minkä haasteen teidän täytyy suorittaa.\nNoppaa heitetään kolme kertaa, eli haasteita on kolme.\nEniten haasteista voittanut joukkue, voittaa." at truecenter
     ""
     hide text
-    scene dieRoom
+    
+    scene dieroom
+    menu:
+        "Kumpi tiimeistä voitti useammin?"
+        "Valerie-tiimi":
+            $ valeriePoints +=1
+        "Anthony-tiimi":
+            $ anthonyPoints +=1
 
 
     scene black
@@ -516,8 +518,9 @@ label dieRoom:
 
 label lastroom:
     scene hotelRoom
-    
+    show valerie neutral at left
     v "Muistatko, monesko kerta tämä nyt on?"
+    show anthony neutral at right
     a "En ole täysin varma... kahdeksas kerta?"
     v "No, oletko valmiina?"
     a "Onko meillä muita vaihtoehtoja?"
@@ -525,4 +528,16 @@ label lastroom:
     a "Mennään sitten."
 
     "Valerie ja Anthon avaavat mysteerihuoneen oven ja astuvat varovasti sisään."
-    scene #VIIMEINEN HUONE
+    #scene #VIIMEINEN HUONE
+
+    # korjaa tehtävänanto ###############################################################################
+    scene black
+    show text "tehtävänanto liian pitkä fix" at truecenter
+    ""
+    hide text
+    menu:
+        "Kumpi tiimeistä voitti?"
+        "Valerie-tiimi":
+            $ valeriePoints +=1
+        "Anthony-tiimi":
+            $ anthonyPoints +=1
