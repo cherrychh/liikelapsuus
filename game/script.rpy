@@ -498,14 +498,48 @@ label dieRoom:
     # tehtävä
     scene black
     show diedark
-    show text "Tuomari heittää noppaa, ja nopan silmäluku kertoo teille, minkä haasteen teidän täytyy suorittaa.\nNoppaa heitetään kolme kertaa, eli haasteita on kolme.\nEniten haasteista voittanut joukkue, voittaa." at truecenter
+    show text "Tuomari heittää kahdeksansuivuista noppaa, ja nopan silmäluku kertoo teille, minkä haasteen teidän täytyy suorittaa.\nNoppaa heitetään kolme kertaa, eli haasteita on kolme.\nEniten haasteista voittanut joukkue, voittaa." at truecenter
     ""
     hide text
     python:
-        tehtavat = ["Kaikki pelaajat asettuvat vaaka-asentoon kädet sivuille ojennettuina, ja toinen jalka mahdollisimman ylös kohotettuna.\nSekä käsien, että jalkojen tulee olla suoriksi ojennettuina.\nSe, joka pysyy asennossa kauemmin ottamatta tukea voittaa haasteen joukkueelleen.","b","c","d","e","f"]
-        kauttamattomatnumerot = [1,2,3,4,5,6]
+        tehtavat = ["Pelaajien kesken valitaan yhteinen alue, joka tulee kiertää tasan minuutissa, se joukkue, jonka aika on lähimpänä tasan yhtä minuuttia, voittaa.",
+        "1. Kaikki pelaajat etsivät itselleen parin toisesta joukkueesta. Parit asettuvat toistensa vastapäätä siten, että toinen jalka ojennetaan eteenpäin siten, että pelaajien varpaat hipaisevat. Toisen jalan varpaat  laitetaan koskemaan omaa eteen ojennetun jalan kantapäätä.\n\n2. Pelataan toisiaan vastaan kivi-sakset-paperia. Voittaja siirtää etummaisen jalan hänen taaemman jalan kantapäähän, jolloin etummaisesta jalasta tulee taaempi. Hävinnyt siirtää etummaisen jalan varpaita koskettamaan voittajan etummaisen jalan varpaisiin. Pelin häviää se, joka ei saa varpaitaansa koskettamaan toisen varpaita.\n\n3. Jokaisessa erässä voittaja kerryttää joukkueelleen yhden pisteen, ja eniten pisteitä kerännyt joukkue voittaa haasteen.",
+        "Kaikki pelaajat asettuvat vaaka-asentoon kädet sivuille ojennettuina, ja toinen jalka mahdollisimman ylös kohotettuna.\nSekä käsien, että jalkojen tulee olla suoriksi ojennettuina.\nSe, joka pysyy asennossa kauemmin ottamatta tukea voittaa haasteen joukkueelleen.",
+        "Se, joka pystyy pyörähtämään eniten yhdellä jalalla seisten antamalla vauhtia vain kerran. voittaa haasteen joukkueelleen. Kaikki joukkueen jäsenet saava yrittää kerran.",
+        "Kaikki asettuvat seinää vasten ja menevät 90 asteen kyykkyyn seinöö vasten. Tavoitteena on pysyä kyykyssä mahdollisimman kauan, ja haasteen voittaa se joukkue, jonka pelaaja pysyy kauiten kyykyssä.",
+        "Kaikki menevät lankkuasentoon, ja yrittävät pysyä mahdollisimman kauan laukussa. Haasteen voittaa se joukkue, jonka pelaaja pysyy kauiten lankussa. ",
+        "Molemmista joukkueista valitaan yksi joukkuetta edustava pelaaja. Kivi-sakset-paperilla valitaan kumpi joukkue aloittaa suorituksen. Tuomari ottaa aikaa ja laskee tehtyjen vatsalihasten määrän. Se joukkue, joka tekee enemmän vatsalihaksia 30 sekunnissa, voittaa haasteen.",
+        "joku tehtävä"]
+        kauttamattomatnumerot = [1,2,3,4,5,6,7,8]
         kautetutnumerot = []
         narrator("Mikä numero nopasta tuli?", interact=False)
+        result = renpy.display_menu([(str(kauttamattomatnumerot[0]), str(kauttamattomatnumerot[0])),
+        (str(kauttamattomatnumerot[1]), str(kauttamattomatnumerot[1])),
+        (str(kauttamattomatnumerot[2]), str(kauttamattomatnumerot[2])),
+        (str(kauttamattomatnumerot[3]), str(kauttamattomatnumerot[3])),
+        (str(kauttamattomatnumerot[4]), str(kauttamattomatnumerot[4])),
+        (str(kauttamattomatnumerot[5]), str(kauttamattomatnumerot[5])),
+        (str(kauttamattomatnumerot[6]), str(kauttamattomatnumerot[6])),
+        (str(kauttamattomatnumerot[7]), str(kauttamattomatnumerot[7]))])
+        kautetutnumerot.append(kauttamattomatnumerot.pop(int(result)-1))
+    show text tehtavat[int(result)-1]
+    ""
+    hide text
+    python:
+        narrator(f"Mikä numero nopasta tuli? (jos heitto {kautetutnumerot[0]} niin heitä uudelleen)", interact=False)
+        result = renpy.display_menu([(str(kauttamattomatnumerot[0]), str(kauttamattomatnumerot[0])),
+        (str(kauttamattomatnumerot[1]), str(kauttamattomatnumerot[1])),
+        (str(kauttamattomatnumerot[2]), str(kauttamattomatnumerot[2])),
+        (str(kauttamattomatnumerot[3]), str(kauttamattomatnumerot[3])),
+        (str(kauttamattomatnumerot[4]), str(kauttamattomatnumerot[4])),
+        (str(kauttamattomatnumerot[5]), str(kauttamattomatnumerot[5])),
+        (str(kauttamattomatnumerot[6]), str(kauttamattomatnumerot[6]))])
+        kautetutnumerot.append(kauttamattomatnumerot.pop(int(result)-1))
+    show text tehtavat[int(result)-1]
+    ""
+    hide text
+    python:
+        narrator(f"Mikä numero nopasta tuli? (jos heitto {kautetutnumerot[0]} tai {kautetutnumerot[0]} niin heitä uudelleen)", interact=False)
         result = renpy.display_menu([(str(kauttamattomatnumerot[0]), str(kauttamattomatnumerot[0])),
         (str(kauttamattomatnumerot[1]), str(kauttamattomatnumerot[1])),
         (str(kauttamattomatnumerot[2]), str(kauttamattomatnumerot[2])),
@@ -516,18 +550,7 @@ label dieRoom:
     show text tehtavat[int(result)-1]
     ""
     hide text
-        
-        narrator(f"Mikä numero nopasta tuli? (jos tuli {kautetutnumerot[0]} niin heitä noppaa uudelleen)", interact=False)
-        result = renpy.display_menu([(str(kauttamattomatnumerot[0]), str(kauttamattomatnumerot[0])),
-        (str(kauttamattomatnumerot[1]), str(kauttamattomatnumerot[1])),
-        (str(kauttamattomatnumerot[2]), str(kauttamattomatnumerot[2])),
-        (str(kauttamattomatnumerot[3]), str(kauttamattomatnumerot[3])),
-        (str(kauttamattomatnumerot[4]), str(kauttamattomatnumerot[4]))])
-        kautetutnumerot.append(kauttamattomatnumerot.pop(int(result)-1))
-        renpy.show(text(tehtavat[int(result)-1]))
-        narrator("")
-        renpy.scene(Solid("000"))
-        renpy.show(diedark)
+    
 
     scene dieroom
     menu:
