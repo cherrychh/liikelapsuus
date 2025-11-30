@@ -91,7 +91,7 @@ label lavaroom1st:
     "Valerie ja Anthony ovat hyviä ystäviä, jotka ovat vuosien eron jälkeen vihdoin päässeet jälleen viettämään aikaa yhdessä. Ystyävykset ovat löytäneet mukavalta näyttävän hotellin, jossa he päättivät yöpyä."
     "Kaikki oli mennyt aivan mutkattomasti, mutta aamulla jotain outoa kuitenkin tapahtuu"
     # show valerie iloinen
-    show valerie neutral at left
+    show valerie happy at left
     v "Hei Ant! Mennäänkö nyt aamupalalle? Näin eilen tuolla tien toisella puolella kivan kahvilan. Siellä näytti olevan kroisantteja, pullia ja kasin muotoisia rinkeleitä."
 
     # show anthony neutraali
@@ -101,13 +101,13 @@ label lavaroom1st:
     "Anthony kävelee oven luokse ja vääntää kahvaa, mutta ovi näyttää olevan lukossa."
 
     # show anthony hämmentynyt
-    show anthony neutral at right
+    show anthony worry at right
     a "Ompa omituista..."
     v "Mitä?"
     a "Tämä ovi vaikuttaa olevan lukossa ulkoota päin."
     
     # show Valerie hämmentynyt
-    show valerie neutral at left
+    show valerie think at left
     v "Hääh? Miten tuo on edes mahdollista?"
 
     "Valerie kävelee Anthonyn luokse ja kokeilee kahvaa useamman kerran."
@@ -136,9 +136,9 @@ label lavaroom1st:
     scene lavaroom
     "Kaverusten katseet tarttuvat heti tuntemattomaan huoneeseen."
 
-    show valerie neutral at left
+    show valerie happy at left
     v "WOAH!"
-    show anthony neutral at right
+    show anthony shock at right
     a "Mitä ihmettä!?"
     v "Onko tuo oikeaa laavaa?"
 
@@ -184,6 +184,7 @@ label lavaroom2nd:
     v "Siinä me kävelimme tyhjästä ilmestyneestä ovesta huoneeseen, jonka lattia oli täysin laavan peitossa."
     a "Oikeastiko? Näin itsekkin ihan samanlaista unta."
     v "Katso! Tuossa on se sama ovi mistä menimme unessa."
+    show anthony shock at right
     a "Niinpä onkin...Outoa"
     v "Miten tämä kaikki on mahdollista?"
     "Valerie kokeilee uudestaan hotellihuoneen ovea ja toteaa sen olevan yhä lukossa."
@@ -192,7 +193,7 @@ label lavaroom2nd:
     v "Meillä ei varmaan ole muita vaihtoehtoja."
     "Valerie avaa nurkassa olevan mysteeri oven uudestaan."
     scene lavaroom
-    show valerie neutral at left
+    show valerie nervousa at left
     v "Täällä tosiaan on se sama laavahuone kuin aikaisemmin."
     s "Hei rakkaat ystävät! Tervetuloa laavahuoneeseen! Minä ole Wave, erittäin älykäs ja hurmaava robootti, joka tarjoaa teille tämän mainion pelikokemuksen!"
     
@@ -208,16 +209,16 @@ label lavaroom2nd:
         "Valerie-tiimi":
             $ valeriePoints +=1
             "Valerie tutkii varovasti huonetta ja löytää molemmille nopean ja turvallisen reitin heille."
-            show valerie neutral at left
+            show valerie happy at left
             v "Fiksu reitti, eikö?"
-            show anthony neutral at right
+            show anthony happyb at right
             a "Yllättävän."
         "Anthony-tiimi":
             $ anthonyPoints +=1
             "Valerie kompastuu lamppuun, mutta Anthony ehtii ottamaan hänestä kiinni ennen kuin Valerie tippuu."
-            show valerie neutral at left
+            show valerie nervousb at left
             v "HUI! Kiitti Ant."
-            show anthony neutral at right
+            show anthony happya at right
             a "Ei mitään."
 
     s "Onneksi olkoon molemmille! Teidän suoritus oli erittäin eeppinen!"
@@ -246,11 +247,11 @@ label lavaroom2nd:
 label darkroom:
 
     scene hotelRoom
-    show valerie neutral at left
+    show valerie nervousa at left
     v "ÄÄh!!"
     v "..."
     v "Ollaan taas täällä?"
-    show anthony neutral at right
+    show anthony worry at right
     a "Näköjään. Onkohan se ovi nyt auki?"
     "Anthony kokeilee kahvaa ja huokaisee."
     v "Vielä lukossa?"
@@ -271,8 +272,9 @@ label darkroom:
     a "No e-"
     pause darknessflashtime
 
+### tästä lähin ei tehty ilmeitä ainkaan mä
     scene hotelRoom
-    show anthony neutral at right
+    show anthony worry at right
     a "..."
     show valerie neutral at left
     v "Saiko se sinut kiinni?"
