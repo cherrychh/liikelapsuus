@@ -293,14 +293,11 @@ label darkroom:
         "Valerie-tiimi":
             $ valeriePoints +=1
             "Robootti kävelee suoraan kohti Anthonia, mutta Valerie ehtii löytämään oven, ennen kun hän jää kiinni."
-            show valerie happy at left
             v "Löytyi! Nyt me vihdoin pääsemme täältä pois!"
         "Anthony-tiimi":
             $ anthonyPoints +=1
             "Robootti hipaisee Valerien vierestä, mutta Anthony vetää hänet puoleensa ja pelastaa hänet."
-            show anthony shock at right
             a "Läheltä piti."
-            show valerie think at left
             v "Jep. Erityisen pelottavaa, kun ei edes nähdä sitä robottia..."
             a "Äläpä muuta sano. Etsitään se ovi nopeasti."
 
@@ -554,6 +551,7 @@ label dieRoom:
     v "Numero 2!"
     "{i}PIIIIIP{/i}"
     a "???"
+    scene black
 
     pause darknessflashtime
 
@@ -561,7 +559,7 @@ label dieRoom:
     show valerie neutral at left
     v "ööh?"
     show anthony neutral at right
-    a "Ehkä sinun saama arvo oli liian pieni."
+    a "Ehkä saamasi arvo oli liian pieni."
     v "Mitää? Onko tämä pelkästään tuurista kiinni? Onpa epäreilua."
     a "Joo, kokeillaanko uudelleen?"
     v "Juu, mutta tällä kertaa sinä aloitat!"
@@ -592,41 +590,41 @@ label dieRoom:
         kauttamattomatnumerot = [1,2,3,4,5,6,7,8]
         kautetutnumerot = []
         narrator("Mikä numero nopasta tuli?", interact=False)
-        result = renpy.display_menu([(str(kauttamattomatnumerot[0]), str(kauttamattomatnumerot[0])),
-        (str(kauttamattomatnumerot[1]), str(kauttamattomatnumerot[1])),
-        (str(kauttamattomatnumerot[2]), str(kauttamattomatnumerot[2])),
-        (str(kauttamattomatnumerot[3]), str(kauttamattomatnumerot[3])),
-        (str(kauttamattomatnumerot[4]), str(kauttamattomatnumerot[4])),
-        (str(kauttamattomatnumerot[5]), str(kauttamattomatnumerot[5])),
-        (str(kauttamattomatnumerot[6]), str(kauttamattomatnumerot[6])),
-        (str(kauttamattomatnumerot[7]), str(kauttamattomatnumerot[7]))])
-        kautetutnumerot.append(kauttamattomatnumerot.pop(int(result)-1))
-    show text tehtavat[int(result)-1]
+        result = renpy.display_menu([(str(kauttamattomatnumerot[0]), "0"),
+        (str(kauttamattomatnumerot[1]), "1"),
+        (str(kauttamattomatnumerot[2]), "2"),
+        (str(kauttamattomatnumerot[3]), "3"),
+        (str(kauttamattomatnumerot[4]), "4"),
+        (str(kauttamattomatnumerot[5]), "5"),
+        (str(kauttamattomatnumerot[6]), "6"),
+        (str(kauttamattomatnumerot[7]), "7")])
+        kautetutnumerot.append(kauttamattomatnumerot.pop(int(result)))
+    show text tehtavat[int(result)]
     ""
     hide text
     python:
         narrator(f"Mikä numero nopasta tuli? (jos heitto {kautetutnumerot[0]} niin heitä uudelleen)", interact=False)
-        result = renpy.display_menu([(str(kauttamattomatnumerot[0]), str(kauttamattomatnumerot[0])),
-        (str(kauttamattomatnumerot[1]), str(kauttamattomatnumerot[1])),
-        (str(kauttamattomatnumerot[2]), str(kauttamattomatnumerot[2])),
-        (str(kauttamattomatnumerot[3]), str(kauttamattomatnumerot[3])),
-        (str(kauttamattomatnumerot[4]), str(kauttamattomatnumerot[4])),
-        (str(kauttamattomatnumerot[5]), str(kauttamattomatnumerot[5])),
-        (str(kauttamattomatnumerot[6]), str(kauttamattomatnumerot[6]))])
-        kautetutnumerot.append(kauttamattomatnumerot.pop(int(result)-1))
-    show text tehtavat[int(result)-1]
+        result = renpy.display_menu([(str(kauttamattomatnumerot[0]), "0"),
+        (str(kauttamattomatnumerot[1]), "1"),
+        (str(kauttamattomatnumerot[2]), "2"),
+        (str(kauttamattomatnumerot[3]), "3"),
+        (str(kauttamattomatnumerot[4]), "4"),
+        (str(kauttamattomatnumerot[5]), "5"),
+        (str(kauttamattomatnumerot[6]), "6")])
+        kautetutnumerot.append(kauttamattomatnumerot.pop(int(result)))
+    show text tehtavat[int(result)]
     ""
     hide text
     python:
         narrator(f"Mikä numero nopasta tuli? (jos heitto {kautetutnumerot[0]} tai {kautetutnumerot[1]} niin heitä uudelleen)", interact=False)
-        result = renpy.display_menu([(str(kauttamattomatnumerot[0]), str(kauttamattomatnumerot[0])),
-        (str(kauttamattomatnumerot[1]), str(kauttamattomatnumerot[1])),
-        (str(kauttamattomatnumerot[2]), str(kauttamattomatnumerot[2])),
-        (str(kauttamattomatnumerot[3]), str(kauttamattomatnumerot[3])),
-        (str(kauttamattomatnumerot[4]), str(kauttamattomatnumerot[4])),
-        (str(kauttamattomatnumerot[5]), str(kauttamattomatnumerot[5]))])
-        kautetutnumerot.append(kauttamattomatnumerot.pop(int(result)-1))
-    show text tehtavat[int(result)-1]
+        result = renpy.display_menu([(str(kauttamattomatnumerot[0]), "0"),
+        (str(kauttamattomatnumerot[1]), "1"),
+        (str(kauttamattomatnumerot[2]), "2"),
+        (str(kauttamattomatnumerot[3]), "3"),
+        (str(kauttamattomatnumerot[4]), "4"),
+        (str(kauttamattomatnumerot[5]), "5")])
+        kautetutnumerot.append(kauttamattomatnumerot.pop(int(result)))
+    show text tehtavat[int(result)]
     ""
     hide text
     
