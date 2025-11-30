@@ -3,10 +3,6 @@ define a = Character("Anthony",color="e8cae6")
 define s = Character("Wave (systeemi)", color="f2f2f2")
 define text = Character("Tehtävä:", kind=nvl)
 
-
-# 
-
-
 image lavaroom = "Laavahuone.png"
 image hotelRoom = "Hotellihuone.png"
 image Lavadark:
