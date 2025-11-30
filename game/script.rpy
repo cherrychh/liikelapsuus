@@ -3,6 +3,10 @@ define a = Character("Anthony",color="e8cae6")
 define s = Character("Wave (systeemi)", color="f2f2f2")
 define text = Character("Tehtävä:", kind=nvl)
 
+
+# 
+
+
 image lavaroom = "Laavahuone.png"
 image hotelRoom = "Hotellihuone.png"
 image Lavadark:
@@ -505,7 +509,47 @@ label closingroom:
 # laita aina ennen "show [hahmon nimi] neutral(tai joku muu tunne)" kun  niien eka repliikki scenen vaihdon jälkeen tulee nii mun ei tarvii laittaa niit jälkikäteen
 
 label dieRoom:
+    scene hotelRoom
+
+    v "WOAH..."
+    v "Tässä kohtaa tämä ei enään yllätä ketään."
+    a "Jep. Ehkä tällä kertaa?"
+    v "Toivotaan niin."
+    "Valerie ja Anthony kävelevät mysteerihuoneen oven luokse ja hengittävät syvään."
+    a "Tästä lähtee."
+    #show valerie vähän stressed
+    v "Jee..."
+    
+    
     scene dieroom
+
+    s "Noppa, noppa? Noppa! Heippa ystävät! Tällä kertaa huoneen keskellä on suuri kahdeksansivuinen noppa, joka varmasti houkuttelee teitä heittämään sitä!"
+    s "Niin kuin havaitsittekin, noppalla on suurin tehtävä tässä huoneessa. Teidän tehtävänä onkin selvittää, mikä merkitys sillä on."
+    s "Onnea jälleen kerran, sillä sitä tulette tarvitsemaan tällä kertaa erityisen paljon, hihi ;)"
+    
+    v "Eli... Me varmaan heitetään noppaa, eikö?"
+    a "No, en näe mitään muuta vaihtoehtoa myöskään."
+    v "Minä voin heittä ensimmäisenä!"
+    "Valerie kävelee suuren nopan luokse ja potkaisee sitä."
+    "Noppa kimpoaa huoneen seinistä ja lopulta laskeutuu takaisin keskelle."
+    v "Numero 2!"
+    "{i}PIIIIIP{/i}"
+    a "???"
+
+    pause darknessflashtime
+
+    scene hotelRoom
+
+    v "ööh?"
+    a "Ehkä sinun saama arvo oli liian pieni."
+    v "Mitää? Onko tämä pelkästään tuurista kiinni? Onpa epäreilua."
+    a "Joo, kokeillaanko uudelleen?"
+    v "Juu, mutta tällä kertaa sinä aloitat!"
+
+    scene dieroom
+
+    "Anthony kävelee huoneeseen ja heittää jättimäistä noppaa."
+
 
 
     # tehtävä
@@ -572,9 +616,26 @@ label dieRoom:
         "Kumpi tiimeistä voitti useammin?"
         "Valerie-tiimi":
             $ valeriePoints +=1
+            a "Numero 7?"
+            s "Wow, onneksi olkoon! Nyt on rakkaan Valin vuoro!"
+            v "Häh? Mitä minun siis pitää saada, jotta pääsemme eteenpäin?"
+            s "Ai niin! Unohdin kertoa. Hupsis!"
+            s "Siis, teidän teidän pitää saada ensimmäisellä kerralla numero 8 TAI saada heittojen summaksi 15!"
+            v "Eli minun pitää siis saada 8, jotta pääsemme eteenpäin?"
+            s "Jep! Eikö olekin jännittävää."
+            v "TOSI."
+            s "Oho! Onneksi olkoon rakkaa pelaajat!"
+            "Yhtäkkiä huoneen valot alkavat välkkyä ja samalla soi erittäin kova sireeni!"
+            v "ÄÄH!"
+
         "Anthony-tiimi":
             $ anthonyPoints +=1
-
+            a "Numero 8."
+            v "Oho! Hyvä Ant!"
+            s "Onneksi olkoon, pääsette suoraan jatkoon, sillä rakas Ant heitti meidän lempi numeromme!"
+            v "Jes!"
+            "Yhtäkkiä huoneen valot alkavat välkkyä ja samalla soi erittäin kova sireeni!"
+            v "ÄÄH!"
 
     scene black
     pause darknessflashtime
@@ -584,6 +645,7 @@ label dieRoom:
 label lastroom:
     scene hotelRoom
     show valerie neutral at left
+    v "..."
     v "Muistatko, monesko kerta tämä nyt on?"
     show anthony neutral at right
     a "En ole täysin varma... kahdeksas kerta?"
@@ -593,6 +655,34 @@ label lastroom:
     a "Mennään sitten."
 
     "Valerie ja Anthon avaavat mysteerihuoneen oven ja astuvat varovasti sisään."
+
+    scene ninjaroom
+
+    s "Tervetuloa jälleen rakkaat kaverit! Tällä kertaa olette saapuneet meidän upouuteen ninjahuoneeseen."
+    s "Eli siis, jos te välttämättä haluatte lähteä meidän mahtavasta luomuksesta, suorittakaa antamani tehtävä."
+    s "Tiedän pitää vain väistää seinistä lentäviä erilaisia palloja. Ei kannata joutua osutuksi, koska... no ette halua tietää."
+
+    v "Okei, vaikuttaa tarkeeksi yksinkertaiselta. Minä voin mennä ensin."
+    a "Okei. Olethan varovainen."
+    v "Joo."
+
+    "Valerie kävelee muutaman askeleen eteenpäin samalla yrittäen väistää seinistä tulevia palloja."
+    v "WOAH!"
+    a "VAL!"
+    "Valerieiin osuu lentopallo, ja hän tippuu tyhjyyteen."
+
+    pause darkenssflashtime
+    scene hotelRoom
+
+    a "Val, oletko kunnossa?"
+    v "Huh... Joo, luulen että olen ihan kunnossa."
+    a "..."
+    v "Älä nyt, olen kunnossa. Mennäänkö uudestaan?"
+    a "..."
+    a "Mennään vaan."
+
+    pause 
+
     #scene #VIIMEINEN HUONE
 
     # korjaa tehtävänanto ###############################################################################
@@ -603,6 +693,6 @@ label lastroom:
     menu:
         "Kumpi tiimeistä voitti?"
         "Valerie-tiimi":
-            $ valeriePoints +=1
+            $ valeriePoints +=2
         "Anthony-tiimi":
-            $ anthonyPoints +=1
+            $ anthonyPoints +=2
