@@ -561,7 +561,7 @@ label dieRoom:
     show valerie nervousb at left
     v "ööh?"
     show anthony neutral at right
-    
+
     a "Ehkä saamasi arvo oli liian pieni."
     show valerie nervousa at left
     v "Mitää? Onko tämä pelkästään tuurista kiinni? Onpa epäreilua."
