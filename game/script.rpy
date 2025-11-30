@@ -1,11 +1,7 @@
 ﻿define v = Character("Valerie", color="cadde8")
 define a = Character("Anthony",color="e8cae6")
-define s = Character("Wave (systeemi)", color="f2f2f2")
+define s = Character("Wave (järjestelmä)", color="f2f2f2")
 define text = Character("Tehtävä:", kind=nvl)
-
-
-# 
-
 
 image lavaroom = "Laavahuone.png"
 image hotelRoom = "Hotellihuone.png"
@@ -730,16 +726,21 @@ label lastroom:
     if valeriePoints > anthonyPoints:
         "Ovi aukeaa Valerien silmien edessä."
         v "Ant, ovi on auki! Mennään!"
+        scene hotecorridor
         "Valerie astuu ovesta ulos."
+        show valerie happy at left
         v "Ant, me tehtiin se!"
+        show valerie nervousb at left
         v "Ant? Missä olet?"
         v "Ant? ANT!"
+        show valerie scared at left
         v "Ole kiltti! Älä säikyttele minua taas, tämä ei ole hauskaa!"
 
         show wave neutral
 
         s "Onneksi olkoon Valerie! Suoriuduit oikein hyvin. Ant ei tule tällä kertaa mukaasi, silä hän on päättänyt jäädä hengailemaan kanssani."
         s "Hyviä jatkoja sinulle ja onnea vielä! Hei hei!"
+        show valerie angry at left
         v "Mitä?! En usko sinua! Olet varmasti siepannut Anthonyn! Vapauta hänet minulle nyt heti!"
 
         show wave laugh
@@ -747,15 +748,17 @@ label lastroom:
         s "Noh, mitäs sanot? Leikitäänkö, Val?"
     else:
         "Tie vapauteen on muutaman askeleen päässä. Ovi ulos aukeaa Anthonyn silmien edessä ja hän astuu siitä ulos. Anthony katsoo taakse Valerieta."
+        scene hotecorridor
         "Oli hiljaista, palloja ammuttiin yhä seinistä, mutta odotettua juhlistusta ja syytä ilolle ei ollut. Valerie oli hiljaa. Hänellä oli vielä hymy enne kun hän kaatuu tyhjyyteen-"
         show anthony shock at right
         a "VAL! VAL!!!"
         "Anthony alkaa heti juoksemaan kohti ovea, mutta enne kun hän pääsee takaisin huoneeseen, ovi sulkeutuu... lopullisesti."
         "Anthonyu hakkaa ovea nyrkillään."
         a "Kuuletko minua val? VAL!"
-
+        show anthony worry at right
         "Anthony yrittää kaikkensa avaamaan oven, mutta ovi pysyy paikoillaan, ei aukea eikä rikkoudu. Koko tilassa kaikuu Anthonyn raivo ja epätoivoisuus."
 
         s "Val? Turha toivoa. Ei hän kuuntelisi sinua kuitenkaan, sillä hänellä on nyt paljon parempi ystävä, jonka kanssa hän viettää loppuelämänsä!"
         a "EI! EI!!! Kuinka sinä kehtaat!"
+        show anthony angry
         a "En aio luovuttaa! Minä pelastan hänet hinnalla millä hyvänsä. Katso vaikka..."
