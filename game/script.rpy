@@ -345,7 +345,7 @@ label plants:
 
     s "Hei rakkaat mussukat, eikun ihmiset, jos edes olette niitä. Tervetuloa viidakon maailmaan! Tämä oli sinua varten tehty Val! <3"
     v "Ahaa... Kiitti. Olisit ehkä voinut jättää lihansyöjä kasvit pois."
-    show wave angry # wave sad?
+    show wave angry
     s "Etkö pidä niistä? :c"
     v "No siis... En?"
     s "..."
@@ -360,7 +360,7 @@ label plants:
     show anthony neutral at right
     a "Eip-"
     "Yhtäkkiä heidän takaa ilmestyy lihansyöjäkasvi, joka nappaa heidät molemmat."
-    show valerie show at left
+    show valerie scared at left
     v "ÄÄH!"
     scene black
     pause darknessflashtime
@@ -394,12 +394,13 @@ label plants:
             $ valeriePoints +=1
             "Anthonyn takaata ilmestyy lihansyöjäkasvi, joka valmistautuu hyökkäykseen."
             "Valerie kuitenkin ehtii iskemään kasvia Wave:llä ja murskaa sen."
-            show valerie neutral
+            show valerie happy
             show wave love
             s "{i}Apua, Val rakastaa minua!{/i}"
             s "IIK! Minäkin rakastan sinua Val!"
-            show valerie nervousa at left
+            show valerie nervousa
             v "Mitäh? Okei?"
+            show valerie nervousa at left
             "He lopulta löytävät oven ja avaavat sen..."
         "Anthony-tiimi":
             "Valerie meinaa kaatua, mutta Anthony ehtii ottamaan hänestä kiinni ja estämään hänet kaatumasta."
@@ -491,7 +492,6 @@ label closingroom:
     hide text
     scene whiteroom
 
-    # LISÄÄ TÄHÄN WAVE (WAVE ANGY) RAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
     menu:
         "Kumpi tiimeistä voitti?"
         "Valerie-tiimi":
@@ -532,43 +532,47 @@ label closingroom:
 
 label dieRoom:
     scene hotelRoom
-    show valerie neutral at left
+    show valerie scared at left
     v "WOAH..."
+    show valerie nervousa at left
     v "Tässä kohtaa tämä ei enään yllätä ketään."
     show anthony neutral at right
     a "Jep. Ehkä tällä kertaa?"
     v "Toivotaan niin."
     "Valerie ja Anthony kävelevät mysteerihuoneen oven luokse ja hengittävät syvään."
     a "Tästä lähtee."
-    #show valerie vähän stressed
     v "Jee..."
     
     
     scene dieroom
-
+    show wave neutral
     s "Noppa, noppa? Noppa! Heippa ystävät! Tällä kertaa huoneen keskellä on suuri kahdeksansivuinen noppa, joka varmasti houkuttelee teitä heittämään sitä!"
     s "Niin kuin havaitsittekin, noppalla on suurin tehtävä tässä huoneessa. Teidän tehtävänä onkin selvittää, mikä merkitys sillä on."
     s "Onnea jälleen kerran, sillä sitä tulette tarvitsemaan tällä kertaa erityisen paljon, hihi ;)"
-    show valerie neutral at left
+    show valerie think at left
     v "Eli... Me varmaan heitetään noppaa, eikö?"
     show anthony neutral at right
     a "No, en näe mitään muuta vaihtoehtoa myöskään."
+    show valerie happy at left
     v "Minä voin heittä ensimmäisenä!"
     "Valerie kävelee suuren nopan luokse ja potkaisee sitä."
     "Noppa kimpoaa huoneen seinistä ja lopulta laskeutuu takaisin keskelle."
     v "Numero 2!"
     "{i}PIIIIIP{/i}"
+    show anthony worry at right
     a "???"
 
     pause darknessflashtime
 
     scene hotelRoom
-    show valerie neutral at left
+    show valerie nervousb at left
     v "ööh?"
     show anthony neutral at right
     a "Ehkä sinun saama arvo oli liian pieni."
+    show valerie nervousa at left
     v "Mitää? Onko tämä pelkästään tuurista kiinni? Onpa epäreilua."
     a "Joo, kokeillaanko uudelleen?"
+    show valerie neutral at left
     v "Juu, mutta tällä kertaa sinä aloitat!"
 
     scene dieroom
@@ -643,26 +647,32 @@ label dieRoom:
             $ valeriePoints +=1
             show anthony neutral at right
             a "Numero 7?"
+            show wave neutral
             s "Wow, onneksi olkoon! Nyt on rakkaan Valin vuoro!"
-            show valerie neutral at left
+            show valerie think at left
             v "Häh? Mitä minun siis pitää saada, jotta pääsemme eteenpäin?"
+            show wave laugh
             s "Ai niin! Unohdin kertoa. Hupsis!"
             s "Siis, teidän teidän pitää saada ensimmäisellä kerralla numero 8 TAI saada heittojen summaksi 15!"
+            show valerie nervousb at left
             v "Eli minun pitää siis saada 8, jotta pääsemme eteenpäin?"
             s "Jep! Eikö olekin jännittävää."
+            show valerie neutral at left
             v "TOSI."
             "Valerie heittää noppaa jännittyneenä."
             show valerie happy at left
             v "Numero 8!!!"
+            show wave neutral
             s "Oho! Onneksi olkoon rakkaa pelaajat!"
 
 
         "Anthony-tiimi":
             $ anthonyPoints +=1
-            show anthony neutral at right
+            show anthony happyb at right
             a "Numero 8."
-            show valerie neutral at left
+            show valerie happy at left
             v "Oho! Hyvä Ant!"
+            show wave laugh
             s "Onneksi olkoon, pääsette suoraan jatkoon, sillä rakas Ant heitti meidän lempi numeromme!"
             v "Jes!"
 
@@ -673,43 +683,50 @@ label dieRoom:
 
 label lastroom:
     scene hotelRoom
-    show valerie neutral at left
+    show valerie nervousa at left
     v "..."
     v "Muistatko, monesko kerta tämä nyt on?"
-    show anthony neutral at right
+    show anthony worry at right
     a "En ole täysin varma... kahdeksas kerta?"
+    show valerie think at left
     v "No, oletko valmiina?"
+    show anthony neutral at right
     a "Onko meillä muita vaihtoehtoja?"
+    show valerie nervousb at left
     v "..."
     a "Mennään sitten."
 
     "Valerie ja Anthon avaavat mysteerihuoneen oven ja astuvat varovasti sisään."
 
     scene ninjaroom
-
+    show wave neutral
     s "Tervetuloa jälleen rakkaat kaverit! Tällä kertaa olette saapuneet meidän upouuteen ninjahuoneeseen."
     s "Eli siis, jos te välttämättä haluatte lähteä meidän mahtavasta luomuksesta, suorittakaa antamani tehtävä."
     s "Tiedän pitää vain väistää seinistä lentäviä erilaisia palloja. Ei kannata joutua osutuksi, koska... no ette halua tietää."
     show valerie neutral at left
     v "Okei, vaikuttaa tarkeeksi yksinkertaiselta. Minä voin mennä ensin."
-    show anthony neutral at right
+    show anthony worry at right
     a "Okei. Olethan varovainen."
     v "Joo."
 
     "Valerie kävelee muutaman askeleen eteenpäin samalla yrittäen väistää seinistä tulevia palloja."
+    show valerie scared at left
     v "WOAH!"
+    show anthony shock at right
     a "VAL!"
     "Valerieiin osuu lentopallo, ja hän tippuu tyhjyyteen."
 
     pause darknessflashtime
     scene hotelRoom
-    show anthony neutral at right
+    show anthony worry at right
     a "Val, oletko kunnossa?"
-    show valerie neutral at left
+    show valerie scared at left
     v "Huh... Joo, luulen että olen ihan kunnossa."
     a "..."
+    show valerie neutral at left
     v "Älä nyt, olen kunnossa. Mennäänkö uudestaan?"
     a "..."
+    show anthony neutral at right
     a "Mennään vaan."
 
     "Valerie ja Anthony astuvat uudestaan mysteerihuoneeseen."
@@ -745,7 +762,7 @@ label lastroom:
         show valerie scared at left
         v "Ole kiltti! Älä säikyttele minua taas, tämä ei ole hauskaa!"
 
-        show wave neutral
+        show wave laugh
 
         s "Onneksi olkoon Valerie! Suoriuduit oikein hyvin. Ant ei tule tällä kertaa mukaasi, silä hän on päättänyt jäädä hengailemaan kanssani."
         s "Hyviä jatkoja sinulle ja onnea vielä! Hei hei!"
@@ -769,5 +786,5 @@ label lastroom:
 
         s "Val? Turha toivoa. Ei hän kuuntelisi sinua kuitenkaan, sillä hänellä on nyt paljon parempi ystävä, jonka kanssa hän viettää loppuelämänsä!"
         a "EI! EI!!! Kuinka sinä kehtaat!"
-        show anthony angry
+        show anthony angry at right
         a "En aio luovuttaa! Minä pelastan hänet hinnalla millä hyvänsä. Katso vaikka..."
