@@ -3,6 +3,10 @@ define a = Character("Anthony",color="e8cae6")
 define s = Character("Wave (systeemi)", color="f2f2f2")
 define text = Character("Tehtävä:", kind=nvl)
 
+
+# 
+
+
 image lavaroom = "Laavahuone.png"
 image hotelRoom = "Hotellihuone.png"
 image Lavadark:
@@ -628,9 +632,11 @@ label dieRoom:
             v "Eli minun pitää siis saada 8, jotta pääsemme eteenpäin?"
             s "Jep! Eikö olekin jännittävää."
             v "TOSI."
+            "Valerie heittää noppaa jännittyneenä."
+            show valerie happy at left
+            v "Numero 8!!!"
             s "Oho! Onneksi olkoon rakkaa pelaajat!"
-            "Yhtäkkiä huoneen valot alkavat välkkyä ja samalla soi erittäin kova sireeni!"
-            v "ÄÄH!"
+
 
         "Anthony-tiimi":
             $ anthonyPoints +=1
@@ -640,8 +646,6 @@ label dieRoom:
             v "Oho! Hyvä Ant!"
             s "Onneksi olkoon, pääsette suoraan jatkoon, sillä rakas Ant heitti meidän lempi numeromme!"
             v "Jes!"
-            "Yhtäkkiä huoneen valot alkavat välkkyä ja samalla soi erittäin kova sireeni!"
-            v "ÄÄH!"
 
     scene black
     pause darknessflashtime
@@ -689,6 +693,8 @@ label lastroom:
     a "..."
     a "Mennään vaan."
 
+    "Valerie ja Anthony astuvat uudestaan mysteerihuoneeseen."
+
     pause 
 
     #scene #VIIMEINEN HUONE
@@ -706,3 +712,36 @@ label lastroom:
             $ valeriePoints +=2
         "Anthony-tiimi":
             $ anthonyPoints +=2
+
+    if valeriePoints > anthonyPoints:
+        "Ovi aukeaa Valerien silmien edessä."
+        v "Ant, ovi on auki! Mennään!"
+        "Valerie astuu ovesta ulos."
+        v "Ant, me tehtiin se!"
+        v "Ant? Missä olet?"
+        v "Ant? ANT!"
+        v "Ole kiltti! Älä säikyttele minua taas, tämä ei ole hauskaa!"
+
+        show wave neutral
+
+        s "Onneksi olkoon Valerie! Suoriuduit oikein hyvin. Ant ei tule tällä kertaa mukaasi, silä hän on päättänyt jäädä hengailemaan kanssani."
+        s "Hyviä jatkoja sinulle ja onnea vielä! Hei hei!"
+        v "Mitä?! En usko sinua! Olet varmasti siepannut Anthonyn! Vapauta hänet minulle nyt heti!"
+
+        show wave laugh
+        s "En! Ovi on juuri tuolla, mene vielä kun ehdit. Minua ei toki haittaa, jos päätä jäädä leikkimään kanssani vielä hetkeksi..."
+        s "Noh, mitäs sanot? Leikitäänkö, Val?"
+    else:
+        "Tie vapauteen on muutaman askeleen päässä. Ovi ulos aukeaa Anthonyn silmien edessä ja hän astuu siitä ulos. Anthony katsoo taakse Valerieta."
+        "Oli hiljaista, palloja ammuttiin yhä seinistä, mutta odotettua juhlistusta ja syytä ilolle ei ollut. Valerie oli hiljaa. Hänellä oli vielä hymy enne kun hän kaatuu tyhjyyteen-"
+        show anthony shock at right
+        a "VAL! VAL!!!"
+        "Anthony alkaa heti juoksemaan kohti ovea, mutta enne kun hän pääsee takaisin huoneeseen, ovi sulkeutuu... lopullisesti."
+        "Anthonyu hakkaa ovea nyrkillään."
+        a "Kuuletko minua val? VAL!"
+
+        "Anthony yrittää kaikkensa avaamaan oven, mutta ovi pysyy paikoillaan, ei aukea eikä rikkoudu. Koko tilassa kaikuu Anthonyn raivo ja epätoivoisuus."
+
+        s "Val? Turha toivoa. Ei hän kuuntelisi sinua kuitenkaan, sillä hänellä on nyt paljon parempi ystävä, jonka kanssa hän viettää loppuelämänsä!"
+        a "EI! EI!!! Kuinka sinä kehtaat!"
+        a "En aio luovuttaa! Minä pelastan hänet hinnalla millä hyvänsä. Katso vaikka..."
