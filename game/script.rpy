@@ -14,7 +14,13 @@ image whitedark:
   matrixcolor OpacityMatrix(0.5)
 image logo = "logo.png"
 image dieroom = "dieroom.png"
-image plantroom = "plantroom.png"
+image diedark:
+  "dieroom.png"
+  matrixcolor OpacityMatrix(0.5)
+image plantroom = "dieroom.png"
+image plantdark:
+  "dieroom.png"
+  matrixcolor OpacityMatrix(0.5)
 
 label splashscreen:
     scene black
@@ -35,6 +41,8 @@ label splashscreen:
     return
 
 label start:
+    $ darknessflashtime = 1.0 #seconds
+
     $ valeriePoints = 0
     $ anthonyPoints = 0
 
@@ -55,18 +63,17 @@ label start:
         "JOO!":
             s "WOO! Niin sitä pitääkin, rakkaat pelaajat!"
             s "Aloitetaan!"
-            pause 1.0
         "Eip.":
             s "{cps=1}...{/cps}"
             s "ALOITETAAN!!!"
-            pause 1.0
+    pause 1.0
 
 
 label lavaroom1st:
 
     scene hotelRoom
 
-    pause 2.0
+    pause 1.0
     
     "Valerie ja Anthony ovat hyviä ystäviä, jotka ovat vuosien eron jälkeen vihdoin päässeet jälleen viettämään aikaa yhdessä. Ystyävykset ovat löytäneet mukavalta näyttävän hotellin, jossa he päättivät yöpyä."
     "Kaikki oli mennyt aivan mutkattomasti, mutta aamulla jotain outoa kuitenkin tapahtuu"
@@ -139,7 +146,7 @@ label lavaroom1st:
 
     # Musta screen/ välähdys
     scene black
-    pause 1.0
+    pause darknessflashtime
 
     jump lavaroom2nd
 
@@ -156,7 +163,7 @@ label lavaroom1st:
 label lavaroom2nd:
 
     scene hotelRoom
-    pause 3.0
+    pause 2.0
     show valerie neutral at left
     v "Hmm. Näin tosi outoa unta."
     show anthony neutral at right
@@ -171,8 +178,6 @@ label lavaroom2nd:
 
     v "Meillä ei varmaan ole muita vaihtoehtoja."
     "Valerie avaa nurkassa olevan mysteeri oven uudestaan."
-    # näytä laavahuone ja piilota ahomot
-    #hide hotelRoom
     scene lavaroom
     show valerie neutral at left
     v "Täällä tosiaan on se sama laavahuone kuin aikaisemmin."
@@ -206,7 +211,7 @@ label lavaroom2nd:
     v "Pääsemmekö nyt pois täältä?"
     s "{cps=2}...{/cps}"
     scene black
-    pause 1.0
+    pause darknessflashtime
 
     #Musta screen
 
@@ -240,7 +245,7 @@ label darkroom:
     v "Noh. Mennään sitten takaisin sinne laava huoneeseen. Ehkä se robootti ääni pystyy auttamaan meitä?"
     scene black
     "Valerie ja Anthon kävelee mysteeri huoneeseen, mutta tällä kertaa siellä ei olekaan laavaa ja huonekaluja."
-    pause 3.0
+    pause darknessflashtime
     v "Ant?"
     a "Täällä."
     v "Tämä ei todellakaan ole se sama huone kuin äsken."
@@ -251,7 +256,7 @@ label darkroom:
     a "Mitä ihmettä."
     s "Hauskaa, eikö? :)"
     a "No e-"
-    pause 3.0
+    pause darknessflashtime
 
     scene hotelRoom
     show anthony neutral at right
@@ -262,10 +267,10 @@ label darkroom:
     v "Noh, olisiko toinen yritys?"
     a "Todellakin."
     scene black
-    # Pimeää
+    show text "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa. \nTavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa.\nTämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla.\nSaatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa.\nSe, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin." at truecenter
+    ""
+    hide text
     
-
-
     menu:
         "Kumpi tiimeistä voitti?"
 
@@ -277,13 +282,13 @@ label darkroom:
             $ anthonyPoints +=1
             "Robootti hipaisee Valerien vierestä, mutta Anthony vetää hänet puoleensa ja pelastaa hänet."
             a "Läheltä piti."
-            v "Jep. Erityisen pelottavaa, kun ei edes nähdä sitä roboottia..."
+            v "Jep. Erityisen pelottavaa, kun ei edes nähdä sitä robottia..."
             a "Äläpä muuta sano. Etsitään se ovi nopeasti."
 
 
     scene black
 
-    pause 1.0
+    pause darknessflashtime
 
     jump plants
 
@@ -330,7 +335,7 @@ label plants:
     "Yhtäkkiä heidän takaa ilmestyy lihansyöjäkasvi, joka nappaa heidät molemmat."
     v "ÄÄH!"
     scene black
-    pause 1.0
+    pause darknessflashtime
 
     scene hotelRoom
     # show valerie stressaantunut?
@@ -346,7 +351,12 @@ label plants:
     show wave angry
     s "Törkeää! >:("
     
-    # TEHTÄVÄ TÄHÄN
+    scene black
+    show plantdark
+    show text "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa. \nTavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa.\nTämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla.\nSaatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa.\nSe, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin." at truecenter
+    ""
+    hide text
+    scene plantroom
 
     menu:
         "Kumpi tiimeistä voitti?"
@@ -370,7 +380,7 @@ label plants:
     "He lopulta löytävät oven ja avaavat sen..."
 
     scene black
-    pause 3.0
+    pause darknessflashtime
     jump closingroom
 
 
@@ -424,7 +434,7 @@ label closingroom:
     a "MITÄ IH-"
     "{i}PIIIIIIP{/i}"
     scene black
-    pause 1.0
+    pause darknessflashtime
 
     scene hotelRoom
     show valerie neutral at left
@@ -483,10 +493,24 @@ label closingroom:
 
     scene black
 
-    pause 3.0
+    pause darknessflashtime
     jump dieRoom
 
 label dieRoom:
+    scene dieRoom
+
+
+    # tehtävä
+    scene black
+    show diedark
+    show text "Tervetuloa huoneeseen, jonka lattia on polttavan kuumaa laavaa. \nTavoitteenanne on pysyä mahdollisimman kauan koskettamatta lattiaa.\nTämä ei ole kuitenkaan niin helppoa, kuin mitä te luulette, sillä paikoillaan ette saa olla.\nSaatte olla yhdessä paikassa vain INSERT RAJOITE, kuunnelkaa tuomaria, sillä hän antaa merkin siitä, milloin paikka täytyy vaihtaa.\nSe, joka pysyy pisimpään pelissä mukana, voittaa kyseisen pelin." at truecenter
+    ""
+    hide text
+    scene dieRoom
+
+
+    scene black
+    pause darknessflashtime
     
 
 
