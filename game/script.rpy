@@ -725,8 +725,6 @@ label lastroom:
 
     "Valerie ja Anthony astuvat uudestaan mysteerihuoneeseen."
 
-    pause 
-
     #scene #VIIMEINEN HUONE
 
     # korjaa tehtävänanto ###############################################################################
@@ -760,7 +758,7 @@ label lastroom:
 
         s "Onneksi olkoon Valerie! Suoriuduit oikein hyvin. Ant ei tule tällä kertaa mukaasi, silä hän on päättänyt jäädä hengailemaan kanssani."
         s "Hyviä jatkoja sinulle ja onnea vielä! Hei hei!"
-        show valerie angry at left
+        show valerie nervousa at left
         v "Mitä?! En usko sinua! Olet varmasti siepannut Anthonyn! Vapauta hänet minulle nyt heti!"
 
         show wave laugh
@@ -782,3 +780,9 @@ label lastroom:
         a "EI! EI!!! Kuinka sinä kehtaat!"
         show anthony angry at right
         a "En aio luovuttaa! Minä pelastan hänet hinnalla millä hyvänsä. Katso vaikka..."
+    
+    scene black
+    show text "{i}Loppu{/i}"
+    pause 3.0
+    show text "Tekijät: Lauri, Cherry, Maria, Sare, Pujing"
+    pause 5.0
